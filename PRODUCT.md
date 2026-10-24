@@ -2,6 +2,8 @@
 
 Status: PRD and planning direction updated on 2026-10-24. The user approved documentation and a phased plan only; implementation has not been authorized by this update. The existing local application is described separately from planned behavior below.
 
+A later 2026-10-24 request separately authorizes phased [quality automation](docs/superpowers/plans/2026-10-24-quality-automation.md), including regression checks and necessary accessibility corrections. It does not authorize executing the service/content MVP, delivery or publication.
+
 ## Problem and objective
 
 Residents seeking premium dog walking and pet care on Manhattan's Upper East Side need to understand the services, learn who will care for their pets, and know how to request attention from Bruno. The confirmed website goal is service discovery, trust and direct contact.
@@ -97,4 +99,4 @@ Visitors can explore the page and reach the contact form on mobile and desktop. 
 
 ## Next delivery and maintenance
 
-Current authority: create/reconcile planning documents only. The [phased plan](docs/superpowers/plans/2026-10-24-existing-project-mvp.md) prepares future local UX work; it does not authorize execution. Resume delivery only as a future task using [the recorded checklist](docs/contact-delivery.md). No publication, spending, commits or pushes are part of this planning task.
+Current service/content authority: planning documents only. The [phased MVP plan](docs/superpowers/plans/2026-10-24-existing-project-mvp.md) prepares future local UX work; it does not authorize execution. Quality automation is authorized separately above. Resume delivery only as a future task using [the recorded checklist](docs/contact-delivery.md). No publication, spending, commits or pushes are part of the service/content planning task.

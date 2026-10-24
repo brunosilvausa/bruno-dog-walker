@@ -1,0 +1,81 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Browser coverage
+        type: choice
+        options: [critical, full]
+        default: critical
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.repo.full_name || github.repository }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24.22.1
+          package-manager-cache: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 12.15.0
+          run_install: false
+          cache: false
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Structure, types, rules, tests and production build
+        run: pnpm check
+      - name: Owned documentation links
+        run: pnpm check:docs
+      - name: Select impact-driven browser coverage
+        id: coverage
+        env:
+          QUALITY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          QUALITY_EVENT: ${{ github.event_name }}
+          QUALITY_MANUAL_SUITE: ${{ inputs.suite }}
+        run: |
+          if [ "$QUALITY_EVENT" = "workflow_dispatch" ]; then
+            printf 'suite=%s\n' "$QUALITY_MANUAL_SUITE" >> "$GITHUB_OUTPUT"
+          else
+            printf 'suite=%s\n' "$(node scripts/quality-scope.mjs)" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Install Chromium
+        if: steps.coverage.outputs.suite == 'critical'
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Install compatibility browsers
+        if: steps.coverage.outputs.suite == 'full'
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Critical Chromium journeys and accessibility
+        if: steps.coverage.outputs.suite == 'critical'
+        run: pnpm test:e2e
+      - name: Compatibility and extended layout
+        if: steps.coverage.outputs.suite == 'full'
+        run: |
+          pnpm exec playwright test --grep @critical
+          pnpm exec playwright test --project=chromium-desktop --grep @extended
+      - name: Publish bounded failure counts only
+        if: failure() && !cancelled()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: quality-summary-${{ github.sha }}
+          path: .local-evidence/e2e/*/summary.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7

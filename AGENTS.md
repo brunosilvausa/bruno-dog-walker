@@ -31,6 +31,8 @@ The 2026-10-24 request authorizes a local premium landing page and explicitly se
 - Tests: `pnpm test`; watch: `pnpm test:watch`
 - Build: `pnpm build`; serve build: `pnpm start`
 - Combined required gates: `pnpm check`
+- Documentation: `pnpm check:docs`; browser journeys: `pnpm test:e2e` after a current `pnpm check` build
+- Browser prerequisites: `pnpm exec playwright install chromium`; compatibility projects/CI/evidence policy: `docs/quality.md`
 - Advisory checks: `pnpm audit --prod` and `pnpm audit --dev`
 
 ## Engineering agreements
@@ -40,6 +42,8 @@ Use Node.js 24/pnpm 12 and the lockfile. Reuse existing components/dependencies.
 Use `@/` imports in application code. `src/lib/env.ts` and `src/lib/logger.ts` are server-only. Validate external inputs with Zod; never log secrets, full bodies or personal pet/client details. Redaction protects configured structured paths, not arbitrary message text. No database architecture exists.
 
 Keep source files under the 350-line lint limit. Update the canonical document responsible for a changed decision. Recheck current code and dated evidence before trusting a handoff. Do not convert configured/pending capabilities into claims of successful execution.
+
+Portable E2E tests use synthetic data and their own production server on loopback3100; never reuse a personal server or build concurrently against the same `.next` directory. A skipped selected `@critical` test fails the browser gate. CI uploads only the bounded summary, never traces, HAR, contact bodies or screenshots. Configured CI is not proof of a successful remote run.
 
 Use Superpowers proportionally to the request; explicit authorization to plan and execute takes precedence over redundant approval prompts. AIOX uses the installed system plugin; do not scaffold its framework into this application.
 

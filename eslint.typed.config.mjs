@@ -4,7 +4,7 @@ import defaultConfig from "./eslint.config.mjs";
 const config = [
   ...defaultConfig,
   {
-    files: ["src/**/*.{ts,tsx}", "design-system/components/**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}", "design-system/components/**/*.{ts,tsx}", "tests/e2e/**/*.ts", "playwright.config.ts"],
     languageOptions: {
       parserOptions: {
         projectService: true,

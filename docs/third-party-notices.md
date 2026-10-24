@@ -14,3 +14,9 @@ Recheck notices, source revisions and license changes before updating vendored i
 Local Nunito Sans and Barlow Condensed font files were restored from the byte-matched YT DOGS v2.1 package. Their SIL Open Font License texts are preserved beside the binaries in `design-system/assets/fonts` and in the historical reference assets.
 
 The historical HTML runtime uses React 18.3.1, React DOM 18.3.1 and Babel standalone 7.29.0. Exact browser scripts were downloaded from the original pinned unpkg URLs, verified against the HTML's SHA-384 integrity attributes, and stored under `design-system/references/vendor` with their MIT licenses. These are reference-only resources; the application continues to use React 19.3.0 from its unchanged lockfile.
+
+## Quality dependencies — 2026-10-24
+
+Development-only packages: `@playwright/test`1.64.1 ([Microsoft Playwright](https://github.com/microsoft/playwright), Apache-2.0) and `@axe-core/playwright`4.14.0 ([Deque axe-core-npm](https://github.com/dequelabs/axe-core-npm), MPL-2.0). License/source metadata was checked for those exact registry versions; their distribution retains license files. No upstream implementation is copied into production code. Browser binaries are local runtime downloads, not repository assets. Exact transitive versions remain in the updated lockfile.
+
+Workflow action revisions were resolved from the official repositories' release tags and their action.yml was inspected: actions/checkout7.0.1, actions/setup-node7.1.0, pnpm/action-setup6.1.0 and actions/upload-artifact7.0.2. Immutable SHAs are in the workflow. actionlint1.7.12 was checksum-verified and run from a temporary directory, not globally installed or added to application dependencies.

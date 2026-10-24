@@ -1,4 +1,6 @@
 .lp { overflow: clip; }
+/* Override keyframe opacity so decorative entrances never fade reading or controls. */
+.lp [data-reveal] { opacity: 1 !important; }
 .lp-shell { max-width: var(--ds-lp-content); margin-inline: auto; padding-inline: var(--ds-lp-gutter); }
 .lp-section { padding-block: var(--ds-lp-section); }
 .lp :is(h1, h2, h3) { font-weight: var(--ds-weight-title); }
@@ -66,7 +68,7 @@ html:has(.lp) { scroll-padding-block-start: var(--ds-sticky-clearance); scroll-p
 }
 @media (max-width: 48rem) {
   .lp-nav-wrap { padding-inline: var(--ds-space-3); }
-  .lp .ds-site-bar { flex-wrap: nowrap; padding-right: var(--ds-space-2); gap: var(--ds-space-2); }
+  .lp .ds-site-bar { flex-wrap: wrap; padding-right: var(--ds-space-2); gap: var(--ds-space-2); }
   .lp .ds-site-brand { gap: var(--ds-space-1); }
   .lp .ds-site-nav { flex-shrink: 0; }
   .lp .ds-site-nav .ds-action { padding-inline: var(--ds-space-4); white-space: nowrap; }

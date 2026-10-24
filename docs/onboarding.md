@@ -27,6 +27,14 @@ pnpm start
 
 ## Tooling
 
+### Portable browser checks
+
+After installing locked dependencies, run `pnpm exec playwright install chromium` once per new Playwright browser version. Then run `pnpm check`, `pnpm check:docs` and `pnpm test:e2e` in that order. The browser runner uses the resulting production build and owns loopback3100; an occupied port fails rather than reusing an unknown process. Reports remain under ignored `.local-evidence/e2e/`.
+
+For compatibility, install `chromium firefox webkit` with the same local Playwright CLI and use the commands in [quality](quality.md#portable-browser-and-ci-commands). Required Linux system libraries are host prerequisites, not permission to change a personal machine globally. The disposable Ubuntu CI runner installs its browser dependencies inside the job.
+
+### Agent tooling
+
 Read [AGENTS.md](../AGENTS.md); [CLAUDE.md](../CLAUDE.md) imports it. Local skills are committed under `.agents/skills`, with `skills-lock.json`. Existing user-level find-skills and native plugins are reused; their presence on another machine is not guaranteed. No MCP settings or credentials are copied.
 
 ## Known limitations
@@ -35,4 +43,4 @@ ESLint 9.39.5 emits a deprecation warning. Upgrading to 10 currently produces pe
 
 `next-dev-loop` requires the missing global `agent-browser >=0.31.1`. Installing that prerequisite is separate machine setup; basic browser validation used the available Playwright connector. This does not block `pnpm dev` or ordinary app checks.
 
-No Git remote, CI service or deployment is configured. Current evidence and capability states are in [setup](setup.md).
+The existing Git remote is GitHub. A read-only CI workflow is prepared locally; a successful remote workflow run is still pending. Deployment and email delivery remain deferred. Current evidence and capability states are in [setup](setup.md).

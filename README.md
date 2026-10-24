@@ -25,6 +25,19 @@ pnpm start
 
 Both server commands bind to loopback. Stop your process with Ctrl+C.
 
+## Quality checks
+
+```sh
+pnpm exec playwright install chromium
+pnpm check
+pnpm check:docs
+pnpm test:e2e
+```
+
+The browser command starts and stops its own production server on loopback port3100 and refuses an occupied port. Run `pnpm check` first so it tests the current build. It covers Chromium mobile/desktop journeys and four axe accessibility states with synthetic data. [Quality](docs/quality.md#portable-browser-and-ci-commands) documents compatibility, layout and CI scope. Raw evidence stays local and ignored.
+
+The versioned [GitHub workflow](.github/workflows/quality.yml) is prepared for pushes and pull requests, with broader browser coverage for application/UI/configuration changes. Remote activation and successful GitHub execution remain pending; see [setup evidence](docs/setup.md#2026-10-24--phased-quality-automation).
+
 ## Documentation
 
 - [Product and scope](PRODUCT.md)
