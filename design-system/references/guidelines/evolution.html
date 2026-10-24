@@ -1,0 +1,50 @@
+<!-- @dsCard group="Evolution" viewport="1200x1180" name="v2.1 → v2.2 comparison" subtitle="Existing flat treatments vs proposed Playful Premium; hover to compare" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BDW · v2.1 vs v2.2</title><link rel="stylesheet" href="../styles.css">
+<script src="../vendor/react.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="../vendor/react-dom.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../vendor/babel.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<style>body{padding:32px 40px 48px}
+.bar{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.head{display:grid;grid-template-columns:160px 1fr 1fr;gap:24px;margin-bottom:8px;font:700 16px/1 var(--font-label);text-transform:uppercase;letter-spacing:.03em}
+.row{display:grid;grid-template-columns:160px minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;padding:20px 0;border-top:1px solid var(--border-card)}
+.row h4{margin:0;font:900 17px/1.2 var(--font-sans)}.row h4 small{display:block;font:400 13px/1.4 var(--font-sans);color:var(--text-muted);margin-top:4px}
+.cell{min-width:0}
+/* v2.1 replicas */
+.o-btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;font:800 16px/1 var(--font-sans);border:2px solid transparent;cursor:pointer;transition:background 160ms}
+.o-btn.p{background:#FFD233;color:#4A200D}.o-btn.p:hover{background:#F4BF16}.o-btn.p:active{background:#E5AB08;transform:translateY(1px)}
+.o-btn.s{background:transparent;color:#006095;border-color:#006095}.o-btn.s:hover{background:#E4F4FB}
+.o-btn:focus-visible{outline:3px solid #004B75;outline-offset:4px}
+.o-card{background:#fff;border:1px solid #D9CBB5;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.o-nav{display:flex;align-items:center;gap:16px;padding:10px 16px;background:#FFF9EA;border-bottom:1px solid #D9CBB5;font-weight:800;font-size:14px}
+.o-nav a{color:#4A200D;text-decoration:none}.o-nav a:hover{text-decoration:underline}
+.o-in{box-sizing:border-box;width:100%;min-height:48px;padding:10px 14px;border:1px solid #927C69;border-radius:8px;font:400 16px var(--font-sans);background:#fff}.o-in:focus{outline:3px solid #004B75;outline-offset:2px}
+.photo{position:relative;height:150px;border-radius:16px;overflow:hidden;background:url(../assets/photos/walking-group.png) center 55%/cover}
+.navd{position:absolute;left:0;right:0;top:0}
+.n-link{padding:8px 12px;border-radius:999px;color:var(--text-body);text-decoration:none;font-weight:800;font-size:14px;transition:background 150ms var(--ease-premium)}.n-link:hover{background:rgba(0,96,149,.08);color:var(--bdw-deep-walk)}
+</style></head><body><div id="r"></div>
+<script type="text/babel">
+const {Button,Card,Field,ImageTile,GlassPanel,ThemeSwitch,Checkbox,Logo,CtaStrip,Spark}=window.BrunoDogWalkerDesignSystem_0597c9;
+const PH='../assets/photos/',LG='../assets/logos/';
+function Row({t,s,a,b}){return <div className="row"><h4>{t}<small>{s}</small></h4><div className="cell">{a}</div><div className="cell">{b}</div></div>;}
+function App(){
+  const [glow,setGlow]=React.useState('warm');const [fb,setFb]=React.useState(false);
+  return <div>
+    <div className="bar"><div style={{fontWeight:700}}>Glow</div><ThemeSwitch label="Glow intensity" value={glow} onChange={setGlow} options={[{value:'warm',label:'Warm'},{value:'neon',label:'Neon (exp.)'},{value:'none',label:'None'}]}/><Checkbox label="Simulate no backdrop-filter" checked={fb} onChange={e=>setFb(e.target.checked)}/><span style={{fontSize:14,color:'var(--text-muted)'}}>Hover and Tab through both columns.</span></div>
+    <div className="head"><span></span><span style={{color:'var(--text-muted)'}}>v2.1 · existing</span><span style={{color:'var(--bdw-deep-walk)'}}>v2.2 · proposed</span></div>
+    <Row t="Navigation" s="Sticky bar over content" a={<div className="photo"><div className="navd o-nav"><img src={LG+'bdw-mascot.png'} style={{width:30}}/>Bruno Dog Walker<span style={{marginLeft:'auto',display:'flex',gap:14}}><a href="#">Services</a><a href="#">Meet & greet</a></span></div></div>}
+      b={<div className="photo"><GlassPanel fallback={fb} radius={0} padding="8px 14px" className="navd" style={{display:'flex',alignItems:'center',gap:10,borderWidth:'0 0 1px',font:'800 14px/1 var(--font-sans)'}}><img src={LG+'bdw-mascot.png'} style={{width:30}}/>Bruno Dog Walker<span style={{marginLeft:'auto',display:'flex',gap:2}}><a className="n-link" href="#">Services</a><a className="n-link" href="#">Meet & greet</a></span></GlassPanel></div>}/>
+    <Row t="Buttons" s="Hover: lift + glow; focus keeps outline" a={<div style={{display:'flex',gap:12,flexWrap:'wrap'}}><button className="o-btn p">Book a meet & greet ↗</button><button className="o-btn s">Explore services</button></div>}
+      b={<div style={{display:'flex',gap:12,flexWrap:'wrap'}}><Button arrow glow={glow}>Book a meet & greet</Button><Button variant="secondary">Explore services</Button><Button loading loadingLabel="Sending…">x</Button></div>}/>
+    <Row t="Service card" s="Level 0 → Level 1 rest, Level 2 hover" a={<div className="o-card" style={{maxWidth:320}}><b style={{font:'700 16px var(--font-label)',textTransform:'uppercase'}}>Private walks</b><b style={{font:'900 22px/1.2 var(--font-sans)'}}>One dog, full attention.</b><span>A walk shaped around your dog’s energy.</span></div>}
+      b={<div style={{maxWidth:320}}><Card interactive media={PH+'park-dog.png'} eyebrow="Private walks" title="One dog, full attention." footer={<Button size="sm" variant="secondary">Ask about this</Button>}>A walk shaped around your dog’s energy.</Card></div>}/>
+    <Row t="Gallery image" s="Gentle 1.04 zoom + glass caption" a={<img src={PH+'brown-dog.png'} style={{width:220,aspectRatio:'4/5',objectFit:'cover',objectPosition:'35% 20%',borderRadius:16,display:'block'}}/>}
+      b={<div style={{width:220}}><ImageTile src={PH+'brown-dog.png'} position="35% 20%" alt="" label="Small Moments / NYC" caption="One more sniff stop."/></div>}/>
+    <Row t="Field focus" s="Outline + warm halo" a={<label style={{display:'flex',flexDirection:'column',gap:8,fontWeight:700,maxWidth:360}}>Your email<input className="o-in" placeholder="you@example.com"/></label>}
+      b={<div style={{maxWidth:360}}><Field label="Your email" placeholder="you@example.com" state="focus"/></div>}/>
+    <Row t="CTA band" s="16 → 24px radius, elevation 2" a={<div style={{background:'#006095',color:'#FFF9EA',borderRadius:16,padding:24,display:'flex',justifyContent:'space-between',alignItems:'center',gap:16}}><b style={{font:'900 22px/1.1 var(--font-sans)'}}>Good care starts with a hello.</b><button className="o-btn p">Let’s meet ↗</button></div>}
+      b={<CtaStrip title={<span style={{fontSize:22}}>Good care starts with a hello.</span>} action={<Button arrow glow={glow}>Let’s meet</Button>}/>}/>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<App/>);
+</script></body></html>

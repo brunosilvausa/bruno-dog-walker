@@ -1,0 +1,43 @@
+<!-- @dsCard group="Social & video" viewport="1280x900" name="Editorial studio" subtitle="Six layout families + three video frames" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bruno Dog Walker · Editorial studio</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../vendor/react.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="../../vendor/react-dom.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../vendor/babel.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:40px clamp(20px,5vw,80px) 80px}.bar{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;background:var(--surface-tint);border-radius:16px;padding:20px 24px;margin:24px 0 36px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.wide{grid-template-columns:repeat(2,minmax(0,1fr))}.lab{display:flex;justify-content:space-between;font-size:14px;font-weight:800;margin-bottom:10px}.lab span{font-weight:400;color:var(--text-muted)}figcaption{font-size:14px;line-height:1.55;color:var(--text-muted);margin-top:12px}figcaption b{display:block;color:var(--text-body)}figure{margin:0}h1{font:900 56px/1.05 var(--font-sans);letter-spacing:-.035em;margin:8px 0 0}h2{font:900 32px/1.1 var(--font-sans);letter-spacing:-.03em;margin:56px 0 20px}@media(max-width:900px){.grid,.wide{grid-template-columns:1fr}}</style></head>
+<body><div id="r"></div>
+<script type="text/babel" src="Piece.jsx"></script><script type="text/babel" src="FeedLayouts.jsx"></script><script type="text/babel" src="VideoLayouts.jsx"></script>
+<script type="text/babel">
+const {ThemeSwitch,Checkbox,Select,Field,Tag}=window.BrunoDogWalkerDesignSystem_0597c9;
+function Entry({n,title,size,cap,children}){return <figure><p className="lab"><b>{`${n} / ${title}`}</b><span>{size}</span></p>{children}<figcaption><b>{cap[0]}</b>{cap[1]}</figcaption></figure>;}
+function App(){
+  const [theme,setTheme]=React.useState('blue');const [safe,setSafe]=React.useState(false);const [ph,setPh]=React.useState('original');const [title,setTitle]=React.useState('Little walks. Big joy.');
+  const p=(d)=>ph==='original'?d:ph;const err=title.length>32?'Até 32 caracteres. Encurte a frase.':null;
+  return <div>
+    <Tag>Bruno Dog Walker / V2.1</Tag><h1>Seis layouts.<br/>Um mesmo bairro.</h1>
+    <div className="bar"><div><div style={{fontWeight:700,marginBottom:8}}>Base editorial · 01, 02, 05</div><ThemeSwitch label="Base editorial" value={theme} onChange={setTheme} options={[{value:'cream',label:'Creme'},{value:'blue',label:'Azul vivo'}]}/></div>
+      <Checkbox label="Mostrar margens" checked={safe} onChange={e=>setSafe(e.target.checked)}/>
+      <div style={{minWidth:240}}><Select label="Foto de teste" value={ph} onChange={e=>setPh(e.target.value)} options={[{value:'original',label:'Original de cada layout'},{value:'dark',label:'Cão de pelo escuro'},{value:'brown',label:'Cão marrom e branco'},{value:'light',label:'Cão de pelo claro'},{value:'crew',label:'Dupla no parque'},{value:'street',label:'Passeio em grupo na via'}]}/></div>
+      <div style={{minWidth:260,flex:1}}><Field label="Título · capa 05" value={title} onChange={e=>setTitle(e.target.value)} error={err} help="Até 32 caracteres e duas linhas."/></div></div>
+    <div className="grid">
+      <Entry n="01" title="Frase editorial" size="1080 × 1350" cap={['Humor de passeio','Uma frase forte, foto central e assinatura clara.']}><FeedEditorial theme={theme} photo={p('dark')} safe={safe}/></Entry>
+      <Entry n="02" title="Curva diagonal" size="1080 × 1350" cap={['Detalhes e curiosidade','A curva orienta a leitura até a frase.']}><FeedDiagonal theme={theme} photo={p('brown')} safe={safe}/></Entry>
+      <Entry n="03" title="Diário fotográfico" size="1080 × 1350" cap={['Foto com respiro','Base creme estável para grupos e registros documentais.']}><FeedJournal photo={p('crew')} safe={safe}/></Entry>
+    </div>
+    <div className="grid" style={{gridTemplateColumns:'minmax(0,1fr) minmax(0,2fr)',marginTop:40}}>
+      <Entry n="04" title="Capa vertical" size="1080 × 1920" cap={['Capa de Reels ou Shorts','Título e marca compacta, separada das legendas.']}><ReelsCover photo={p('light')} safe={safe}/></Entry>
+      <div style={{display:'grid',gap:40,alignContent:'start'}}>
+        <Entry n="05" title="Capa editorial" size="1280 × 720" cap={['Uma promessa editorial','Texto curto e retrato com presença; até duas linhas.']}><YouTubeEditorial theme={theme} photo={p('light')} title={err?null:title} safe={safe}/></Entry>
+        <Entry n="06" title="Foto em destaque" size="1280 × 720" cap={['Companhia e contexto','Mascote à esquerda; canto inferior direito reservado.']}><YouTubePhoto photo={p('crew')} safe={safe}/></Entry>
+      </div></div>
+    <h2>A capa apresenta. A legenda acompanha.</h2>
+    <div className="grid">
+      <Entry n="V1" title="Durante a fala" size="1080 × 1920" cap={['Legenda de fala','Duas linhas, base marrom e uma palavra amarela.']}><VideoCaption photo={p('street')} safe={safe}/></Entry>
+      <Entry n="V2" title="Identificação" size="1080 × 1920" cap={['Nome, quando confirmado','Sugestão: 2,5–4 segundos.']}><VideoName photo={p('brown')} safe={safe}/></Entry>
+      <Entry n="V3" title="Encerramento" size="1080 × 1920" cap={['Uma chamada final','Logo completo e convite breve; 2–3 segundos.']}><VideoEnd safe={safe}/></Entry>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<App/>);
+</script></body></html>

@@ -8,3 +8,9 @@ Application dependencies retain their published licenses in the package distribu
 - `find-skills` is reused from an existing user-level installation; no copy is vendored here. The installation CLI was skills 1.7.4, with researched source revision `a80e4c9d12d607631249d4d7d059f835d4b2f13a`; it is not an application dependency.
 
 Recheck notices, source revisions and license changes before updating vendored instructions or publishing the repository. This setup did not publish any artifact.
+
+## Design-system additions — 2026-10-23
+
+Local Nunito Sans and Barlow Condensed font files were restored from the byte-matched YT DOGS v2.1 package. Their SIL Open Font License texts are preserved beside the binaries in `design-system/assets/fonts` and in the historical reference assets.
+
+The historical HTML runtime uses React 18.3.1, React DOM 18.3.1 and Babel standalone 7.29.0. Exact browser scripts were downloaded from the original pinned unpkg URLs, verified against the HTML's SHA-384 integrity attributes, and stored under `design-system/references/vendor` with their MIT licenses. These are reference-only resources; the application continues to use React 19.3.0 from its unchanged lockfile.

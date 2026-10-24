@@ -1,0 +1,33 @@
+@layer components {
+  .ds-wave { display: block; width: 100%; height: var(--ds-wave-height); overflow: visible; }
+  .ds-wave-fill { fill: var(--ds-blue); }
+  .ds-wave-edge { fill: none; stroke: var(--ds-sunshine); stroke-width: var(--ds-wave-stroke); }
+  .ds-spark { display: inline-block; width: var(--ds-spark-size); height: var(--ds-spark-size); fill: var(--ds-deep-blue); flex: none; }
+  .ds-signature {
+    display: inline-grid; place-items: center; flex: none;
+    width: var(--ds-signature-md); aspect-ratio: 1; padding: var(--ds-space-2);
+    border-radius: var(--ds-radius-circle); background: var(--ds-blue);
+  }
+  .ds-signature[data-base="cream"] { background: var(--ds-cream); border: var(--ds-border-width) solid var(--ds-border); }
+  .ds-signature[data-size="sm"] { width: var(--ds-signature-sm); padding: var(--ds-space-1); }
+  .ds-signature[data-size="lg"] { width: var(--ds-signature-lg); padding: var(--ds-space-3); }
+  .ds-signature img { width: 100%; height: auto; }
+  .ds-tag[data-expressive="true"] { transform: rotate(var(--ds-label-tilt)); margin-block: var(--ds-space-2); padding: var(--ds-space-2) var(--ds-space-6); }
+  .ds-photo { margin: 0; min-width: 0; }
+  .ds-photo-frame { aspect-ratio: 1; overflow: hidden; border-radius: var(--ds-radius-card); background: var(--ds-blue-tint); }
+  .ds-photo-frame[data-ratio="portrait"] { aspect-ratio: var(--ds-photo-portrait); }
+  .ds-photo-frame[data-ratio="landscape"] { aspect-ratio: var(--ds-photo-landscape); }
+  .ds-photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .ds-photo-frame[data-position="top"] img { object-position: top; }
+  .ds-photo-frame[data-position="bottom"] img { object-position: bottom; }
+  .ds-photo-caption { margin-top: var(--ds-space-3); font-size: var(--ds-text-small); color: var(--ds-muted); }
+  .ds-card-media { margin: calc(var(--ds-space-6) * -1) calc(var(--ds-space-6) * -1) var(--ds-space-2); }
+  .ds-card-media .ds-photo-frame { border-end-start-radius: 0; border-end-end-radius: 0; }
+  .ds-card-media .ds-photo-caption { margin-inline: var(--ds-space-6); }
+  .ds-card:has(.ds-card-media) { overflow: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-action:not(:disabled):not([aria-disabled="true"]):hover,
+  .ds-action:not(:disabled):not([aria-disabled="true"]):active { transform: none; transition: none; }
+  .ds-tag[data-expressive="true"] { transform: none; }
+}

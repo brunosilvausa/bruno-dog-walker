@@ -1,0 +1,22 @@
+{
+  "park-dog.jpg": {
+    "source": "design-system/references/uploads/assets/photos/park-dog.jpg",
+    "sha256": "24829e519b6604cde5b36f705af6b4d9f2c1a530a646f8c721b057609e383320",
+    "usage": "Local showcase and 2026-10-24 landing review asset; final photography approval pending. Identities and service claims not inferred."
+  },
+  "park-crew.jpg": {
+    "source": "design-system/references/uploads/assets/photos/park-crew.jpg",
+    "sha256": "6e80809f577486244c9e92bbfe97b365884e2a247a29af90bd1326e72e5c2a1d",
+    "usage": "Local showcase and 2026-10-24 landing review asset; final photography approval pending. Identities and service claims not inferred."
+  },
+  "brown-dog.jpg": {
+    "source": "design-system/references/uploads/assets/photos/brown-dog.jpg",
+    "sha256": "65b3752cba98d2d28bf02c133ad2a2f56bafbaf83be468646c60030db3bb3f8c",
+    "usage": "Local showcase and 2026-10-24 landing review asset; final photography approval pending. Identities and service claims not inferred."
+  },
+  "walking-group.jpg": {
+    "source": "design-system/references/uploads/assets/photos/walking-group.jpg",
+    "sha256": "323bf0da44ec2d0508251a22099404e73b0596590d54ed6928bc960a02a2b214",
+    "usage": "Local showcase and 2026-10-24 landing review asset; final photography approval pending. Identities and service claims not inferred."
+  }
+}

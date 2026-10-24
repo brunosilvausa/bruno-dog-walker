@@ -1,0 +1,61 @@
+@layer components {
+  .ds-lab {
+    --ds-duration: calc(var(--ds-duration-normal) * var(--ds-duration-scale));
+    --ds-track-duration: calc(var(--ds-track-base) * var(--ds-duration-scale));
+    --ds-entrance-duration: calc(var(--ds-duration-slow) * var(--ds-duration-scale));
+    --ds-float-duration: calc(var(--ds-float-base) * var(--ds-duration-scale));
+    --ds-glow-action: 0 0 var(--ds-glow-radius) color-mix(in srgb, var(--ds-glow-base) calc(var(--ds-glow-scale) * 100%), transparent);
+    --ds-glow-strong: 0 0 var(--ds-glow-strong-radius) color-mix(in srgb, var(--ds-glow-strong-base) calc(var(--ds-glow-scale) * 100%), transparent);
+    --ds-glow-neon: 0 0 var(--ds-glow-radius) color-mix(in srgb, var(--ds-glow-neon-base) calc(var(--ds-glow-scale) * 100%), transparent);
+  }
+  .ds-lab .ds-ambient { opacity: var(--ds-glow-scale); }
+  .ds-calibration { padding: var(--ds-space-6); border: var(--ds-border-width) solid var(--ds-border); border-radius: var(--ds-radius-block); background: var(--ds-blue-tint); }
+  .ds-calibration summary { cursor: pointer; }
+  .ds-calibration-body { margin-top: var(--ds-space-6); }
+  .ds-calibration-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-palette-min)), 1fr)); gap: var(--ds-space-6); }
+  .ds-calibration label { font-weight: var(--ds-weight-action); }
+  .ds-calibration output { font-variant-numeric: tabular-nums; font-size: var(--ds-text-small); }
+  .ds-calibration input[type="range"] { width: 100%; min-height: var(--ds-control); accent-color: var(--ds-deep-blue); cursor: pointer; }
+  .ds-glass[data-treatment="reference"] { --ds-glass-blur: var(--ds-glass-reference-blur); }
+  .ds-glass-scene { display: grid; min-width: 0; }
+  .ds-glass-scene > * { grid-area: 1 / 1; }
+  .ds-glass-scene .ds-glass { position: relative; align-self: end; margin: var(--ds-space-4); padding: var(--ds-space-4); }
+  .ds-glass-scene .ds-glass .ds-brand-note { margin-top: var(--ds-space-2); color: inherit; }
+  .ds-glow-specimen { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-6); padding: var(--ds-space-8); border: var(--ds-border-width) solid var(--ds-border); border-radius: var(--ds-radius-block); background: var(--ds-white); text-align: center; }
+  .ds-glow-chip { display: inline-block; padding: var(--ds-space-4) var(--ds-space-6); border-radius: var(--ds-radius-pill); background: var(--ds-sunshine); color: var(--ds-cocoa); font-weight: var(--ds-weight-action); }
+  .ds-glow-specimen[data-glow="warm"] .ds-glow-chip { box-shadow: var(--ds-glow-action); }
+  .ds-glow-specimen[data-glow="strong"] .ds-glow-chip { box-shadow: var(--ds-glow-strong); }
+  .ds-glow-specimen[data-glow="neon"][data-neon="true"] .ds-glow-chip { box-shadow: var(--ds-glow-neon); }
+  .ds-timing-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-palette-min)), 1fr)); gap: var(--ds-space-6); align-items: center; width: 100%; padding-block: var(--ds-space-4); border-bottom: var(--ds-border-width) solid var(--ds-border); }
+  .ds-timing-track { padding: var(--ds-space-1); overflow: hidden; background: var(--ds-blue-tint); border-radius: var(--ds-radius-pill); }
+  .ds-timing-motion { width: 100%; }
+  .ds-timing-motion > span { display: block; width: var(--ds-space-6); height: var(--ds-space-6); border-radius: var(--ds-radius-circle); background: var(--ds-deep-blue); }
+  .ds-timing-row[data-speed="fast"] { --ds-sample-duration: var(--ds-duration-fast); }
+  .ds-timing-row[data-speed="normal"] { --ds-sample-duration: var(--ds-duration-normal); }
+  .ds-timing-row[data-speed="slow"] { --ds-sample-duration: var(--ds-duration-slow); }
+  .ds-timing[data-play] .ds-timing-motion { animation: ds-timing calc(var(--ds-sample-duration) * var(--ds-duration-scale)) var(--ds-entrance-ease) both; }
+  .ds-lab[data-reduced-motion="true"] .ds-spatial-surface,
+  .ds-lab[data-reduced-motion="true"] .ds-spatial-layer,
+  .ds-lab[data-reduced-motion="true"] .ds-floating,
+  .ds-lab[data-reduced-motion="true"] .ds-entrance-grid > * { animation: none; transform: none; transition: none; opacity: 1; }
+  .ds-lab[data-reduced-motion="true"] .ds-card[data-interactive="true"],
+  .ds-lab[data-reduced-motion="true"] .ds-card[data-interactive="true"] .ds-card-media img,
+  .ds-lab[data-reduced-motion="true"] .ds-action,
+  .ds-lab[data-reduced-motion="true"] .ds-action-arrow,
+  .ds-lab[data-reduced-motion="true"] .ds-tag { transform: none !important; transition: none !important; }
+  .ds-lab[data-reduced-motion="true"] .ds-spinner { animation: none; }
+  .ds-lab[data-reduced-motion="true"] .ds-timing-motion { animation: none; transform: none; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .ds-lab .ds-spatial[data-tracking="true"]:not([data-paused]) .ds-spatial-light { opacity: calc(var(--ds-light-opacity) * var(--ds-glow-scale)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-timing[data-play] .ds-timing-motion { animation: none; transform: none; }
+}
+@supports (backdrop-filter: blur(1px)) {
+  .ds-glass[data-treatment="reference"]:not([data-fallback="true"]) { background: var(--ds-glass-reference-cream); }
+  .ds-glass[data-treatment="reference"][data-tone="cocoa"]:not([data-fallback="true"]) { background: var(--ds-glass-reference-cocoa); }
+}
+@keyframes ds-timing { from { transform: none; } to { transform: translateX(calc(100% - var(--ds-space-6))); } }
+
+.ds-lab[data-reduced-motion="true"] .ds-floating { transform: none; transition: none; }

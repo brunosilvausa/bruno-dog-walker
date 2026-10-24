@@ -1,0 +1,361 @@
+{
+  "$description": "Bruno Dog Walker — design system v2. Direção editorial urbana e alegre aprovada em 2026-10-13; aplicações implementadas para revisão visual.",
+  "primitive": {
+    "color": {
+      "blue": {
+        "$type": "color",
+        "$value": "#008BD2"
+      },
+      "blue-dark": {
+        "$type": "color",
+        "$value": "#006095"
+      },
+      "blue-deep": {
+        "$type": "color",
+        "$value": "#004B75"
+      },
+      "blue-light": {
+        "$type": "color",
+        "$value": "#E4F4FB"
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": "#FFD233"
+      },
+      "yellow-hover": {
+        "$type": "color",
+        "$value": "#F4BF16"
+      },
+      "yellow-active": {
+        "$type": "color",
+        "$value": "#E5AB08"
+      },
+      "cream": {
+        "$type": "color",
+        "$value": "#FFF9EA"
+      },
+      "brown": {
+        "$type": "color",
+        "$value": "#4A200D"
+      },
+      "brown-deep": {
+        "$type": "color",
+        "$value": "#261408"
+      },
+      "brown-muted": {
+        "$type": "color",
+        "$value": "#775B4A"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#D9CBB5"
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "#927C69"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#E9E1D2"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#24634A"
+      },
+      "success-light": {
+        "$type": "color",
+        "$value": "#EBF5EF"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "#A12C26"
+      },
+      "error-light": {
+        "$type": "color",
+        "$value": "#FCEEEB"
+      }
+    },
+    "font": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "'Nunito Sans', system-ui, sans-serif"
+      },
+      "condensed": {
+        "$type": "fontFamily",
+        "$value": "'Barlow Condensed', 'Nunito Sans', sans-serif"
+      }
+    },
+    "space": {
+      "1": {
+        "$value": "4px"
+      },
+      "2": {
+        "$value": "8px"
+      },
+      "3": {
+        "$value": "12px"
+      },
+      "4": {
+        "$value": "16px"
+      },
+      "5": {
+        "$value": "20px"
+      },
+      "6": {
+        "$value": "24px"
+      },
+      "8": {
+        "$value": "32px"
+      },
+      "10": {
+        "$value": "40px"
+      },
+      "12": {
+        "$value": "48px"
+      },
+      "16": {
+        "$value": "64px"
+      },
+      "20": {
+        "$value": "80px"
+      },
+      "24": {
+        "$value": "96px"
+      }
+    },
+    "radius": {
+      "sm": {
+        "$value": "8px"
+      },
+      "md": {
+        "$value": "16px"
+      },
+      "lg": {
+        "$value": "24px"
+      },
+      "pill": {
+        "$value": "999px"
+      }
+    },
+    "size": {
+      "caption": {
+        "$value": "14px"
+      },
+      "body": {
+        "$value": "16px"
+      },
+      "lead": {
+        "$value": "20px"
+      },
+      "h3": {
+        "$value": "24px"
+      },
+      "h2": {
+        "$value": "40px"
+      },
+      "h1": {
+        "$value": "56px"
+      },
+      "display": {
+        "$value": "80px"
+      }
+    },
+    "duration": {
+      "fast": {
+        "$value": "160ms"
+      },
+      "normal": {
+        "$value": "240ms"
+      }
+    },
+    "shadow": {
+      "soft": {
+        "$value": "0 6px 20px rgb(74 32 13 / 0.08)"
+      }
+    }
+  },
+  "semantic": {
+    "color": {
+      "background": {
+        "$value": "{primitive.color.cream}"
+      },
+      "surface": {
+        "$value": "{primitive.color.white}"
+      },
+      "text": {
+        "$value": "{primitive.color.brown}"
+      },
+      "muted": {
+        "$value": "{primitive.color.brown-muted}"
+      },
+      "brand": {
+        "$value": "{primitive.color.blue}"
+      },
+      "link": {
+        "$value": "{primitive.color.blue-dark}"
+      },
+      "accent": {
+        "$value": "{primitive.color.yellow}"
+      },
+      "action": {
+        "$value": "{primitive.color.yellow}"
+      },
+      "on-action": {
+        "$value": "{primitive.color.brown}"
+      },
+      "border": {
+        "$value": "{primitive.color.border}"
+      },
+      "control-border": {
+        "$value": "{primitive.color.border-strong}"
+      },
+      "focus": {
+        "$value": "{primitive.color.blue-deep}"
+      },
+      "success": {
+        "$value": "{primitive.color.success}"
+      },
+      "error": {
+        "$value": "{primitive.color.error}"
+      },
+      "disabled": {
+        "$value": "{primitive.color.disabled}"
+      }
+    },
+    "font": {
+      "heading": {
+        "$value": "{primitive.font.family}"
+      },
+      "body": {
+        "$value": "{primitive.font.family}"
+      },
+      "label": {
+        "$value": "{primitive.font.condensed}"
+      }
+    },
+    "spacing": {
+      "section": {
+        "$value": "{primitive.space.24}"
+      },
+      "component": {
+        "$value": "{primitive.space.6}"
+      },
+      "gap": {
+        "$value": "{primitive.space.4}"
+      }
+    }
+  },
+  "component": {
+    "button": {
+      "bg": {
+        "$value": "{semantic.color.action}"
+      },
+      "fg": {
+        "$value": "{semantic.color.on-action}"
+      },
+      "hover": {
+        "$value": "{primitive.color.yellow-hover}"
+      },
+      "active": {
+        "$value": "{primitive.color.yellow-active}"
+      },
+      "height": {
+        "$value": "48px"
+      },
+      "radius": {
+        "$value": "{primitive.radius.pill}"
+      },
+      "padding-x": {
+        "$value": "{primitive.space.6}"
+      }
+    },
+    "input": {
+      "bg": {
+        "$value": "{semantic.color.surface}"
+      },
+      "border": {
+        "$value": "{semantic.color.control-border}"
+      },
+      "height": {
+        "$value": "48px"
+      },
+      "radius": {
+        "$value": "{primitive.radius.sm}"
+      }
+    },
+    "card": {
+      "bg": {
+        "$value": "{semantic.color.surface}"
+      },
+      "radius": {
+        "$value": "{primitive.radius.md}"
+      },
+      "padding": {
+        "$value": "{semantic.spacing.component}"
+      }
+    },
+    "badge": {
+      "bg": {
+        "$value": "{semantic.color.accent}"
+      },
+      "fg": {
+        "$value": "{semantic.color.text}"
+      },
+      "radius": {
+        "$value": "{primitive.radius.pill}"
+      }
+    },
+    "social": {
+      "bg": {
+        "$value": "{semantic.color.background}"
+      },
+      "headline": {
+        "$value": "{semantic.color.text}"
+      },
+      "punchline": {
+        "$value": "{semantic.color.link}"
+      },
+      "on-blue": {
+        "$value": "{primitive.color.cream}"
+      },
+      "on-blue-accent": {
+        "$value": "{primitive.color.yellow}"
+      }
+    },
+    "video": {
+      "caption-bg": {
+        "$value": "{semantic.color.text}"
+      },
+      "caption-fg": {
+        "$value": "{primitive.color.cream}"
+      },
+      "caption-highlight": {
+        "$value": "{semantic.color.accent}"
+      }
+    },
+    "editorial": {
+      "bg": {
+        "$value": "{semantic.color.brand}"
+      },
+      "fg": {
+        "$value": "{primitive.color.cream}"
+      },
+      "highlight-bg": {
+        "$value": "{semantic.color.accent}"
+      },
+      "highlight-fg": {
+        "$value": "{semantic.color.text}"
+      },
+      "signature-bg": {
+        "$value": "{semantic.color.background}"
+      },
+      "signature-fg": {
+        "$value": "{semantic.color.link}"
+      }
+    }
+  }
+}

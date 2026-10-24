@@ -1,0 +1,16 @@
+<!-- @dsCard group="Components" viewport="700x440" name="Content" subtitle="Tag, Highlight, Card elevations, CtaStrip, Logo" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="../../vendor/react.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="../../vendor/react-dom.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../vendor/babel.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><style>body{padding:24px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}</style></head><body><div id="r"></div><script type="text/babel">
+const {Tag,Highlight,Card,CtaStrip,Logo,Button}=window.BrunoDogWalkerDesignSystem_0597c9;
+ReactDOM.createRoot(document.getElementById('r')).render(<div>
+<div className="row"><Tag>WALK DIARIES / NYC</Tag><Tag variant="cream" style={{border:'1px solid var(--border-card)'}}>SMALL MOMENTS / NYC</Tag><Tag variant="plain">01 / TOGETHER</Tag><h3 style={{margin:0,font:'900 28px/1.1 var(--font-sans)',letterSpacing:'-.03em'}}>I heard <Highlight>adventure.</Highlight></h3><Logo variant="mascot" avatar width={52} base="../../assets/logos/" style={{boxShadow:'var(--elevation-1)'}}/></div>
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginBottom:22}}>
+<Card elevation={0} eyebrow="Level 0" title="Flat.">v2.1 hairline card.</Card>
+<Card eyebrow="Level 1" title="Resting.">Default service card.</Card>
+<Card interactive state="hover" eyebrow="Level 2" title="Hovered." footer={<Button size="sm" variant="secondary">Ask about this</Button>}>Lifts 4px.</Card></div>
+<CtaStrip eyebrow="Upper East Side / Manhattan" title="Good care starts with a hello." action={<Button arrow>Let’s meet</Button>}/>
+</div>);
+</script></body></html>

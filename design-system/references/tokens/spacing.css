@@ -1,0 +1,8 @@
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--space-24:96px;
+--radius-field:8px;--radius-card:16px;--radius-block:24px;--radius-pill:999px;
+--border-width:1px;--border-width-strong:2px;
+--focus-ring:3px solid var(--bdw-focus-blue);--focus-offset:4px;
+--control-height:48px;
+--content-max:1280px;--gutter:80px;
+}

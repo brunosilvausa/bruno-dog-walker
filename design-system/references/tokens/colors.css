@@ -1,0 +1,22 @@
+/* Bruno Dog Walker — color tokens (v2.1). Primitive → semantic → component. */
+:root{
+/* Primitives — brand */
+--bdw-walk-blue:#008BD2;--bdw-sunshine:#FFD233;--bdw-warm-cream:#FFF9EA;--bdw-cocoa:#4A200D;--bdw-deep-walk:#006095;
+/* Primitives — support */
+--bdw-blue-light:#E4F4FB;--bdw-cocoa-soft:#775B4A;--bdw-cocoa-deep:#261408;--bdw-white:#FFFFFF;--bdw-focus-blue:#004B75;
+--bdw-sunshine-hover:#F4BF16;--bdw-sunshine-pressed:#E5AB08;--bdw-disabled-bg:#E9E1D2;
+--bdw-border-field:#927C69;--bdw-border-card:#D9CBB5;
+/* Primitives — feedback (functional only) */
+--bdw-green:#24634A;--bdw-red:#A12C26;
+/* Semantic — surfaces */
+--surface-page:var(--bdw-warm-cream);--surface-card:var(--bdw-white);--surface-brand:var(--bdw-walk-blue);--surface-brand-deep:var(--bdw-deep-walk);--surface-tint:var(--bdw-blue-light);--surface-caption:var(--bdw-cocoa);--surface-highlight:var(--bdw-sunshine);
+/* Semantic — text */
+--text-body:var(--bdw-cocoa);--text-muted:var(--bdw-cocoa-soft);--text-strong:var(--bdw-cocoa-deep);--text-link:var(--bdw-deep-walk);--text-on-brand:var(--bdw-warm-cream);--text-on-highlight:var(--bdw-cocoa);--text-accent:var(--bdw-deep-walk);
+/* Semantic — borders & feedback */
+--border-field:var(--bdw-border-field);--border-card:var(--bdw-border-card);--border-focus:var(--bdw-focus-blue);
+--feedback-success:var(--bdw-green);--feedback-error:var(--bdw-red);
+/* Component — actions */
+--action-primary-bg:var(--bdw-sunshine);--action-primary-bg-hover:var(--bdw-sunshine-hover);--action-primary-bg-pressed:var(--bdw-sunshine-pressed);--action-primary-fg:var(--bdw-cocoa);
+--action-secondary-fg:var(--bdw-deep-walk);--action-secondary-border:var(--bdw-deep-walk);--action-secondary-bg-hover:var(--bdw-blue-light);
+--action-disabled-bg:var(--bdw-disabled-bg);--action-disabled-fg:var(--bdw-cocoa-soft);
+}

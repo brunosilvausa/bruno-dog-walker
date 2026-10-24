@@ -1,8 +1,10 @@
 # Bruno Dog Walker
 
-Local foundation for a premium dog walking and pet care website serving the Upper East Side of Manhattan, NYC. The future site will explain services, establish trust in Bruno, and direct visitors to an existing contact channel.
+Local premium landing page for dog walking and pet care on Manhattan's Upper East Side. It combines the supplied identity, local photography, layered pointer depth, scroll reveals, responsive editorial sections and an accessible Meet & Greet form.
 
-This delivery is the technical bootstrap. It contains a minimal identity page, not the finished marketing site or a working enquiry flow. No database, forms, login, reservations, payments or remote services are configured.
+**The form is a local preview: no requests are sent.** The recipient is `hello@brunodogwalker.com`; delivery setup is [deferred for later](docs/contact-delivery.md) while UX work continues. No database, login, reservations, payments or deployment is included.
+
+`/design-system`, `/design-system/motion` and `/design-system/phase-3` retain the existing component showcases. Historical HTMLs in `design-system/references` remain isolated from application code. Phase 3 Stage B remains review-gated; the landing reuses the established motion components and defaults.
 
 ## Run
 
@@ -29,6 +31,8 @@ Both server commands bind to loopback. Stop your process with Ctrl+C.
 - [Local preparation](docs/onboarding.md)
 - [Architecture](docs/architecture.md)
 - [Design and accessibility](docs/design.md)
+- [Visual contract and tokens](DESIGN.md)
+- [Component library and HTML references](design-system/README.md)
 - [Quality and reusable reviews](docs/quality.md)
 - [Agent instructions](AGENTS.md)
 - [Setup evidence and limitations](docs/setup.md)
@@ -37,4 +41,4 @@ Both server commands bind to loopback. Stop your process with Ctrl+C.
 
 ## Next delivery
 
-Confirm the actual services, Bruno's biography and verified trust evidence, approved photos and contact destination. Then design and build the first service/trust/contact page. Acceptance requires an accurate, accessible direct-contact link, not an online reservation.
+Continue the complete UX, starting with mobile. Email delivery is deferred; resume it later using [the recorded checklist](docs/contact-delivery.md). Detailed services, Bruno's biography, trust evidence and final photos still need confirmation; a contact request does not confirm a reservation.

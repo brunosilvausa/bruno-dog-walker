@@ -1,0 +1,42 @@
+/* v2.2 — Playful Premium: elevation, glass, glow, motion */
+:root{
+/* Brief aliases → existing palette (v2.1 values preserved) */
+--brand-yellow:var(--bdw-sunshine);--brand-blue:var(--bdw-deep-walk);--brand-brown:var(--bdw-cocoa);--surface-cream:var(--bdw-warm-cream);
+
+/* Glow — use on hover / selected / focus enhancement only, never resting */
+--glow-warm:0 0 18px rgba(255,206,45,.22); /* @kind shadow */
+--glow-warm-strong:0 0 24px rgba(255,206,45,.38); /* @kind shadow */
+--glow-neon:0 0 18px rgba(239,255,0,.22); /* @kind shadow */
+--glow-text:drop-shadow(0 0 10px rgba(255,206,45,.55)); /* @kind other */
+
+/* Elevation — 0 flat · 1 resting card · 2 hovered interactive · 3 floating overlays & nav */
+--elevation-0:none; /* @kind shadow */
+--elevation-1:0 4px 12px rgba(69,32,15,.04),0 14px 32px rgba(69,32,15,.06); /* @kind shadow */
+--elevation-2:0 8px 20px rgba(69,32,15,.06),0 22px 48px rgba(69,32,15,.10); /* @kind shadow */
+--elevation-3:0 10px 24px rgba(69,32,15,.08),0 30px 64px rgba(69,32,15,.14); /* @kind shadow */
+--shadow-card:var(--elevation-1); /* @kind shadow */
+--shadow-card-hover:var(--elevation-2); /* @kind shadow */
+--shadow-soft:var(--elevation-1); /* @kind shadow */
+--shadow-lift:var(--elevation-2); /* @kind shadow */
+--lift-hover:-4px; /* @kind spacing */
+--lift-button:-1px; /* @kind spacing */
+--border-translucent:rgba(74,32,13,.08); /* @kind color */
+--border-translucent-strong:rgba(74,32,13,.14); /* @kind color */
+
+/* Glass — warm-tinted, restrained blur; fallbacks used when backdrop-filter is unsupported */
+--glass-background:rgba(255,249,233,.78); /* @kind color */
+--glass-background-fallback:rgba(255,249,234,.97); /* @kind color */
+--glass-cocoa:rgba(38,20,8,.72); /* @kind color */
+--glass-cocoa-fallback:rgba(38,20,8,.94); /* @kind color */
+--glass-border:rgba(255,255,255,.55); /* @kind color */
+--glass-blur:16px; /* @kind other */
+
+/* Motion */
+--duration-fast:150ms; /* @kind other */
+--duration-normal:250ms; /* @kind other */
+--duration-slow:400ms; /* @kind other */
+--duration-base:var(--duration-normal); /* @kind other */
+--ease-premium:cubic-bezier(0.22,1,0.36,1); /* @kind other */
+--ease-standard:var(--ease-premium); /* @kind other */
+--reveal-distance:12px; /* @kind spacing */
+}

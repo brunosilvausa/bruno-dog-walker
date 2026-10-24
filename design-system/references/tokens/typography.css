@@ -1,0 +1,15 @@
+:root{
+--font-sans:"Nunito Sans",ui-rounded,system-ui,sans-serif;
+--font-label:"Barlow Condensed","Arial Narrow",sans-serif;
+--weight-title:900;--weight-action:800;--weight-label:700;--weight-support:600;--weight-body:400;
+--type-display-size:80px;--type-display-lh:1.02;
+--type-h1-size:56px;--type-h1-lh:1.08;
+--type-h2-size:40px;--type-h2-lh:1.1;
+--type-h3-size:24px;--type-h3-lh:1.2;
+--type-intro-size:20px;--type-intro-lh:1.5;
+--type-body-size:16px;--type-body-lh:1.6;
+--type-support-size:14px;--type-support-lh:1.4;
+--type-title-tracking:-0.03em;
+--type-display-size-mobile:46px;--type-h2-size-mobile:31px;
+--measure-body:65ch;
+}

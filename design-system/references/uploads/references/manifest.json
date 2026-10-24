@@ -1,0 +1,193 @@
+{
+  "created": "2026-10-13",
+  "status": "editorial direction approved; visual execution delivered for review",
+  "assets": [
+    {
+      "role": "original logo, unchanged",
+      "source": "/Users/brunosilva/Documents/Bruno Dog Walker/Logo/Logo BDW.png",
+      "copy": "assets/logos/bdw-primary.png",
+      "sha256": "592fc42dc70b254100a45b0f903caef10cccdd7e6316b246ee9122c4c3c9049e"
+    },
+    {
+      "role": "original logo, unchanged",
+      "source": "/Users/brunosilva/Documents/Bruno Dog Walker/Logo/Logo BDW Alt.png",
+      "copy": "assets/logos/bdw-alternate.png",
+      "sha256": "ea516737dae472c15ce7c549e281e98d324c247fc339747521c31038f559425e"
+    },
+    {
+      "role": "original logo, unchanged",
+      "source": "/Users/brunosilva/Documents/Bruno Dog Walker/Logo/Logo Name BDW.png",
+      "copy": "assets/logos/bdw-wordmark.png",
+      "sha256": "b0355bf6a1bfd7968bc908040dfd7d8288bf76c58ee26cf8cd763ba41a96ce7a"
+    },
+    {
+      "role": "original logo, unchanged",
+      "source": "/Users/brunosilva/Documents/Bruno Dog Walker/Logo/Logo Dog BDW.png",
+      "copy": "assets/logos/bdw-mascot.png",
+      "sha256": "9c68ace817cf0e33a36d9254a47933f985266bc56e3b68b3ed3242a4926e48f9"
+    },
+    {
+      "role": "existing local video reference, unchanged",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/cover-reference.jpg",
+      "copy": "assets/photos/park-dog.jpg",
+      "sha256": "24829e519b6604cde5b36f705af6b4d9f2c1a530a646f8c721b057609e383320"
+    },
+    {
+      "role": "existing local video reference, unchanged",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/short-02/cover-reference-fluffy.jpg",
+      "copy": "assets/photos/fluffy-dog.jpg",
+      "sha256": "248b92987a9af72986cb4ed318d00c7931331e3718a066317053321c5a7f365a"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_03_21.png",
+      "copy": "references/instagram-23-03-21.png",
+      "sha256": "569cc7f942acb7bb5b5f41621b28764bf23ae037a2b7effd77b2eb3598b4a339"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_04_23.png",
+      "copy": "references/instagram-23-04-23.png",
+      "sha256": "6d14add224fd9379ed949815959eeebeec949ad87416bc2c2c1f6fde3654636a"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_04_34.png",
+      "copy": "references/instagram-23-04-34.png",
+      "sha256": "f32525cbd5289d0e2b9e02a13351c9439cff054d76708e53a58a811e8654110c"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_26_27.png",
+      "copy": "references/instagram-23-26-27.png",
+      "sha256": "3fa1300b5585ccef94f19689efc8bc84528ec4451398021db0000618667812c6"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_29_52.png",
+      "copy": "references/instagram-23-29-52.png",
+      "sha256": "1204a2a7f5b44717cc26a2f2001363fd7b4d380009b7ba5e0ee44801d2fd8c5c"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_35_00.png",
+      "copy": "references/instagram-23-35-00.png",
+      "sha256": "3fe2b0e9bc9b0d80f8bd43d8ae6f47873a8591a373cd9247baeb62831aa0651f"
+    },
+    {
+      "role": "user inspiration",
+      "source": "/Users/brunosilva/Documents/ChatGPT/Instagram/Imagem do Codex 15 de set. de 2026, 23_38_35.png",
+      "copy": "references/instagram-23-38-35.png",
+      "sha256": "2fedfff1cb6753a1537c97949f7eedc26f89fd423af42298f0b3b5b968b07471"
+    },
+    {
+      "role": "user inspiration screenshot",
+      "source": "/var/folders/rn/86blbjds5tvf_jr_145cvk140000gn/T/codex-clipboard-2f1c6455-6a1b-426e-a2c1-3c94c497c84a.png",
+      "copy": "references/instagram-profile.png",
+      "sha256": "fe019d44445b1e821d2c7bf695366aa5911603db8aeba23850694efe11395a16"
+    },
+    {
+      "role": "user inspiration screenshot",
+      "source": "/var/folders/rn/86blbjds5tvf_jr_145cvk140000gn/T/codex-clipboard-e5a8a1ea-d038-4867-af64-56aba7bae160.png",
+      "copy": "references/official-website.png",
+      "sha256": "c02a50a90d749722908df606310952852b7b14f16669221e3e23db9f14b6a549"
+    },
+    {
+      "role": "font or license from official Google Fonts repository",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunitosans/NunitoSans%5BYTLC,opsz,wdth,wght%5D.ttf",
+      "copy": "assets/fonts/nunito-sans.ttf",
+      "sha256": "f934d7142fb4784bf828da485b7dcbd90c0c80d514e9d49a5da0ed3a1ae2491d"
+    },
+    {
+      "role": "font or license from official Google Fonts repository",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunitosans/OFL.txt",
+      "copy": "assets/fonts/nunito-sans-ofl.txt",
+      "sha256": "efbb0c9e864cef973982d9a17567e6be5c3d1759695574586f3f18c7ecca064b"
+    },
+    {
+      "role": "font or license from official Google Fonts repository",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-Bold.ttf",
+      "copy": "assets/fonts/barlow-condensed-bold.ttf",
+      "sha256": "e476562ec9c1e16cf16475895b511f08c804f438cc9a9f80a44ea50a0eeb5b65"
+    },
+    {
+      "role": "font or license from official Google Fonts repository",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+      "copy": "assets/fonts/barlow-condensed-ofl.txt",
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+    },
+    {
+      "role": "existing local video reference, unchanged",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/cover-reference-crew.jpg",
+      "copy": "assets/photos/park-crew.jpg",
+      "sha256": "6e80809f577486244c9e92bbfe97b365884e2a247a29af90bd1326e72e5c2a1d"
+    },
+    {
+      "role": "existing local video reference, unchanged",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/short-02/cover-reference-play.jpg",
+      "copy": "assets/photos/play-dogs.jpg",
+      "sha256": "c8b6a9781bea9b6e6857051599689b701e155e9079cf853daae32b178d501920"
+    },
+    {
+      "role": "frame extracted from pre-existing SDR video; no photo retouching",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/long-01/native/IMG_2952.mp4",
+      "timestamp_seconds": 20,
+      "parent_sha256": "0b2b31a0d42226b94640d45da6d11a64b6212ac83cc42eaf5fae2114c9052db3",
+      "copy": "assets/photos/brown-dog.jpg",
+      "sha256": "65b3752cba98d2d28bf02c133ad2a2f56bafbaf83be468646c60030db3bb3f8c",
+      "command": [
+        "ffmpeg",
+        "-ss",
+        "20",
+        "-i",
+        "work/long-01/native/IMG_2952.mp4",
+        "-frames:v",
+        "1",
+        "-q:v",
+        "2",
+        "outputs/design-system/assets/photos/brown-dog.jpg"
+      ]
+    },
+    {
+      "role": "frame extracted from pre-existing SDR video; no photo retouching",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/long-01/native/IMG_2952.mp4",
+      "timestamp_seconds": 6.3,
+      "parent_sha256": "0b2b31a0d42226b94640d45da6d11a64b6212ac83cc42eaf5fae2114c9052db3",
+      "copy": "assets/photos/golden-dog.jpg",
+      "sha256": "583d0755b45bca353d81159a5b268a702d757abd26449e3c4ef6214594aa1b01",
+      "command": [
+        "ffmpeg",
+        "-ss",
+        "6.3",
+        "-i",
+        "work/long-01/native/IMG_2952.mp4",
+        "-frames:v",
+        "1",
+        "-q:v",
+        "2",
+        "outputs/design-system/assets/photos/golden-dog.jpg"
+      ]
+    },
+    {
+      "role": "frame extracted from pre-existing SDR video; no photo retouching",
+      "source": "/Users/brunosilva/Documents/ChatGPT/YT DOGS/work/long-01/native/IMG_1111.mp4",
+      "timestamp_seconds": 1.5,
+      "parent_sha256": "aac12c937c7b82a103dfef7b3b5d2298287937f3367586bfd0fbe9e9ad002abb",
+      "copy": "assets/photos/walking-group.jpg",
+      "sha256": "323bf0da44ec2d0508251a22099404e73b0596590d54ed6928bc960a02a2b214",
+      "command": [
+        "ffmpeg",
+        "-ss",
+        "1.5",
+        "-i",
+        "work/long-01/native/IMG_1111.mp4",
+        "-frames:v",
+        "1",
+        "-q:v",
+        "2",
+        "outputs/design-system/assets/photos/walking-group.jpg"
+      ]
+    }
+  ],
+  "version": "2.0.0"
+}

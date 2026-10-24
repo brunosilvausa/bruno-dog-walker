@@ -1,0 +1,15 @@
+# Phase3 — Stage A foundation
+
+Latest source: the user's Phase3 attachment explicitly requires presenting Stage A for review before Stage B and forbids production layout/branding changes before foundation approval. Earlier blanket execution approval covers building/validating this concrete foundation, not bypassing this newer staged gate. Deliver Stage A and its validation now; leave B and integration-specific C pending.
+
+Reuse the existing spatial/motion library and native controllers. Alternatives: duplicate motion framework (rejected), heavy geometry/timeline engine (explicitly excluded/unnecessary), incremental native primitives (selected). No new dependency, asset, production layout, business claim or persistence.
+
+Create `/design-system/phase-3` as Stage A review showcase. Calibration reuses existing finite/clamped tilt0–4/lift0–6/glow0–100/duration×.5–2 controls, with Stage A defaults4/6/100/1. Existing route/defaults remain4px lift. Scope press3px, perspective1000 with centered origin, planes12/24/40px and duration150/200/250/550ms to the new foundation. Existing shared behavior remains unchanged unless a new API is opted into.
+
+Complete architecture with TactileButton (thin typed wrapper over Button tactile), server ScrollReveal/StaggerContainer wrappers using the existing ScrollScene observer and CSS. Expose no forced visual states. Reuse SpatialCard, GlassSurface, FloatingElement, AmbientGlow and AnimatedMascot. Move reveal selectors from route-only to ScrollScene scope so public primitives work outside Phase2 while retaining identical semantics.
+
+Add AmbientMotion, enabled separately and off initially. Fine-pointer-only CSS float7s and accent8s, temporarily duration-adjustable but clamped5–8s. One original rigid mascot container floats6px with a shadow-opacity breathing cue; one Spark moves asynchronously while label/copy remain static. No image deformation/head articulation/new3D asset. IntersectionObserver/media/visibility/focus/pointer listeners control a data-moving flag; missing observer/reduced/coarse/hidden/offscreen/paused means static. No RAF/scroll listener or per-frame React state for ambient motion. Stop immediately while hovering/focusing an interactive child, during a greeting or when paused. Cleanup ignores late callbacks and removes listeners/flags.
+
+Showcase includes depth/elevation, calibrated cards, 12–40px accent planes, tactile variants/states, floating glass navigation, finite mascot plus optional ambient, once-only service/gallery/CTA reveals, glow/duration specimens and local/OS reduction. Touch replaces cursor tilt with bounded press feedback on the real CTA, never an extra card activation target. No neon default; reuse explicit experimental laboratory. Performance evidence is local browser/bundle/layout behavior; hosted Core Web Vitals remain unqualified.
+
+Acceptance: native lifecycle tests, SSR primitive semantics, full gates, new-route browser calibration/ambient/pause/offscreen/reduced/coarse/noJS/keyboard/four widths, existing Phase2 regression, independent review. Present working Stage A URL and exact remaining gate to the user.

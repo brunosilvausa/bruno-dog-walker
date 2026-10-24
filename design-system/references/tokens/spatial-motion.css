@@ -1,0 +1,67 @@
+/* v3.0 Stage A — Spatial foundation & motion architecture. Centralised; primitives in components/spatial read only these. */
+:root{
+/* Spatial */
+--spatial-perspective:1000px; /* @kind other */
+--spatial-origin:50% 50%; /* @kind other */
+--spatial-origin-hero:50% 85%; /* @kind other */
+--spatial-tilt:4deg; /* @kind other */
+--spatial-lift:6px; /* @kind spacing */
+--spatial-press:3px; /* @kind spacing */
+--spatial-depth-1:12px; /* @kind spacing */
+--spatial-depth-2:24px; /* @kind spacing */
+--spatial-depth-3:40px; /* @kind spacing */
+
+/* Shadows — warm Cocoa ambient; pressed collapses toward contact */
+--shadow-ambient:0 4px 12px rgba(69,32,15,.05),0 16px 36px rgba(69,32,15,.07); /* @kind shadow */
+--shadow-hover:0 10px 22px rgba(69,32,15,.08),0 28px 56px rgba(69,32,15,.13); /* @kind shadow */
+--shadow-pressed:0 1px 2px rgba(69,32,15,.12),0 4px 10px rgba(69,32,15,.06); /* @kind shadow */
+
+/* Light */
+--highlight-directional:rgba(255,255,255,.28); /* @kind color */
+--highlight-sheen:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0) 55%); /* @kind other */
+--border-illumination:rgba(255,206,45,.75); /* @kind color */
+--glow-intensity:1; /* @kind other */
+--glow-ambient-color:rgba(255,206,45,.30); /* @kind color */
+--glow-warm-dynamic:0 0 18px rgba(255,206,45,calc(.22 * var(--glow-intensity))); /* @kind shadow */
+--glow-neon-dynamic:0 0 18px rgba(239,255,0,calc(.22 * var(--glow-intensity))); /* @kind shadow */
+
+/* Motion — scale with --motion-scale (showcase control; 1 in production) */
+--motion-scale:1; /* @kind other */
+--motion-micro:calc(150ms * var(--motion-scale)); /* @kind other */
+--motion-fast:calc(200ms * var(--motion-scale)); /* @kind other */
+--motion-standard:calc(250ms * var(--motion-scale)); /* @kind other */
+--motion-reveal:calc(550ms * var(--motion-scale)); /* @kind other */
+--motion-reset:calc(700ms * var(--motion-scale)); /* @kind other */
+--motion-ambient-min:calc(5s * var(--motion-scale)); /* @kind other */
+--motion-ambient-max:calc(8s * var(--motion-scale)); /* @kind other */
+--motion-stagger:80ms; /* @kind other */
+--motion-reveal-distance:16px; /* @kind spacing */
+--ease-default:cubic-bezier(0.22,1,0.36,1); /* @kind other */
+--ease-spring-physical:cubic-bezier(.34,1.3,.64,1); /* @kind other */
+}
+/* Physically plausible spring (damping ≈ .7, ~6% overshoot) where linear() is supported */
+@supports (transition-timing-function:linear(0,1)){:root{--ease-spring-physical:linear(0,.009,.035 2.1%,.141 4.4%,.281 6.7%,.723 12.9%,.938 16.7%,1.017 19.4%,1.055 22%,1.065 24.6%,1.06 27.4%,1.044 31%,1.016 38.4%,1.003 44%,.997 52%,1); /* @kind other */}}
+
+/* ScrollReveal + StaggerContainer — content is visible until JS arms it */
+.bdw-sr{opacity:0;transform:translateY(var(--sr-distance,var(--motion-reveal-distance)));transition:opacity var(--motion-reveal) var(--ease-default),transform var(--motion-reveal) var(--ease-default),clip-path var(--motion-reveal) var(--ease-default);transition-delay:var(--sr-delay,0ms)}
+.bdw-sr[data-variant=fade]{transform:none}
+.bdw-sr[data-variant=scale]{transform:translateY(calc(var(--sr-distance,var(--motion-reveal-distance))*.5)) scale(.97)}
+.bdw-sr[data-variant=image]{transform:scale(1.05);clip-path:inset(14% 0 0 0 round 16px)}
+.bdw-sr.is-in{opacity:1;transform:none}
+.bdw-sr[data-variant=image].is-in{clip-path:inset(-48px -48px -48px -48px round 16px)}
+
+/* FloatingElement */
+.bdw-fe{display:inline-block;transform:translate3d(calc(var(--px,0) * var(--fe-depth,0px)),calc(var(--py,0) * var(--fe-depth,0px) * .6),0);transition:transform var(--motion-reset) var(--ease-default)}
+.bdw-fe__inner{display:inline-block;animation:bdw-fe var(--fe-dur,6s) var(--fe-ease,cubic-bezier(.45,0,.55,1)) infinite;animation-delay:var(--fe-delay,0s)}
+.bdw-fe[data-paused=true] .bdw-fe__inner{animation-play-state:paused}
+@keyframes bdw-fe{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(calc(var(--fe-amp,6px) * -1)) rotate(var(--fe-rot,0deg))}}
+
+/* AmbientGlow */
+.bdw-ambient-glow{position:absolute;pointer-events:none;border-radius:50%;background:radial-gradient(closest-side,var(--ag-color,var(--glow-ambient-color)),transparent);opacity:calc(var(--ag-intensity,1) * var(--glow-intensity));z-index:0}
+.bdw-ambient-glow[data-pulse=true]{animation:bdw-ag var(--motion-ambient-max) cubic-bezier(.45,0,.55,1) infinite}
+@keyframes bdw-ag{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+@media (prefers-reduced-motion:reduce){.bdw-sr{opacity:1!important;transform:none!important;clip-path:none!important;transition:none}.bdw-fe,.bdw-fe__inner,.bdw-ambient-glow{animation:none!important;transform:none!important;transition:none}}
+:root[data-reduce-motion] .bdw-sr{opacity:1!important;transform:none!important;clip-path:none!important;transition:none}
+:root[data-reduce-motion] .bdw-fe,:root[data-reduce-motion] .bdw-fe__inner,:root[data-reduce-motion] .bdw-ambient-glow{animation:none!important;transform:none!important;transition:none}
+@media print{.bdw-sr{opacity:1!important;transform:none!important;clip-path:none!important}}

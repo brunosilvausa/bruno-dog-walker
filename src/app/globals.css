@@ -1,12 +1,28 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@import "../../design-system/tokens.css";
+@import "../../design-system/styles.css";
+@source "../";
+@source "../../design-system/components";
 
-body {
-  background: #fafaf9;
-  color: #1c1917;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-:focus-visible {
-  outline: 3px solid #1c1917;
-  outline-offset: 4px;
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --text-*: initial;
+  --color-page: var(--ds-page);
+  --color-ink: var(--ds-text);
+  --color-muted: var(--ds-muted);
+  --color-brand: var(--ds-blue);
+  --color-action: var(--ds-sunshine);
+  --color-link: var(--ds-link);
+  --font-sans: var(--ds-font-body);
+  --font-label: var(--ds-font-label);
+  --spacing: var(--ds-space-1);
+  --radius-field: var(--ds-radius-field);
+  --radius-card: var(--ds-radius-card);
+  --radius-block: var(--ds-radius-block);
+  --radius-pill: var(--ds-radius-pill);
+  --text-body: var(--ds-text-body);
+  --text-small: var(--ds-text-small);
+  --text-intro: var(--ds-text-intro);
 }

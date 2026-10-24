@@ -1,0 +1,28 @@
+@layer components {
+  .ds-guide-hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-card-min)), 1fr)); align-items: center; gap: var(--ds-space-12); }
+  .ds-guide-cover { position: relative; display: grid; place-items: center; min-height: var(--ds-specimen-height); background: var(--ds-blue-tint); border-radius: var(--ds-radius-block); overflow: hidden; padding: var(--ds-space-8); }
+  .ds-guide-cover .ds-wave { position: absolute; inset-inline: 0; bottom: 0; }
+  .ds-guide-cover .ds-signature { position: relative; }
+  .ds-display.ds-guide-title { font-size: clamp(var(--ds-text-display-mobile), var(--ds-text-display-fluid), var(--ds-text-h1)); }
+  .ds-guide-intro { max-width: var(--ds-measure); margin-bottom: var(--ds-space-6); color: var(--ds-muted); }
+  .ds-guide-subsection { margin-top: var(--ds-space-8); }
+  .ds-guide-subsection > h3 { margin-bottom: var(--ds-space-4); }
+  .ds-brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-palette-min)), 1fr)); gap: var(--ds-space-6); }
+  .ds-brand-tile { display: grid; place-items: center; min-height: var(--ds-specimen-height); padding: var(--ds-space-6); background: var(--ds-blue-tint); border-radius: var(--ds-radius-block); overflow: hidden; }
+  .ds-brand-tile .ds-wave { align-self: end; }
+  .ds-brand-caption { margin-top: var(--ds-space-3); font-weight: var(--ds-weight-action); }
+  .ds-brand-note { margin-top: var(--ds-space-2); color: var(--ds-muted); font-size: var(--ds-text-small); }
+  .ds-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-palette-min)), 1fr)); gap: var(--ds-space-4); }
+  .ds-palette .ds-swatch { min-height: var(--ds-specimen-height); display: flex; flex-direction: column; justify-content: end; gap: var(--ds-space-2); padding: var(--ds-space-6); }
+  .ds-swatch[data-color="blue"] { color: var(--ds-cocoa-deep); }
+  .ds-swatch[data-color="deep-blue"], .ds-swatch[data-color="cocoa"] { color: var(--ds-cream); }
+  .ds-contrast { display: flex; align-items: center; gap: var(--ds-space-4); padding: var(--ds-space-6); border: var(--ds-border-width) solid var(--ds-border); border-radius: var(--ds-radius-card); background: var(--ds-white); }
+  .ds-contrast-sample { width: var(--ds-contrast-sample); aspect-ratio: 1; flex: none; display: grid; place-items: center; font-size: var(--ds-text-h3); font-weight: var(--ds-weight-title); border-radius: var(--ds-radius-field); background: var(--ds-cream); color: var(--ds-cocoa); }
+  .ds-contrast-sample[data-pair="link"] { color: var(--ds-deep-blue); }
+  .ds-contrast-sample[data-pair="action"] { background: var(--ds-sunshine); }
+  .ds-contrast-sample[data-pair="inverse"] { background: var(--ds-deep-blue); color: var(--ds-sunshine); }
+  .ds-guide-voice { padding: var(--ds-space-8); background: var(--ds-sunshine); color: var(--ds-cocoa); border-radius: var(--ds-radius-block); }
+  .ds-guide-divider { border-top: var(--ds-border-width) solid var(--ds-border); padding-top: var(--ds-space-8); }
+  .ds-type-specimen { padding-block: var(--ds-space-6); border-bottom: var(--ds-border-width) solid var(--ds-border); }
+  .ds-type-specimen .ds-display { margin-block: var(--ds-space-3); }
+}

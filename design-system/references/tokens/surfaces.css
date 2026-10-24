@@ -1,0 +1,15 @@
+/* Shared surface utilities (glass, elevation, reveal). Components rely on these classes. */
+.bdw-glass{background:var(--glass-background);border:1px solid var(--glass-border);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(1.15);backdrop-filter:blur(var(--glass-blur)) saturate(1.15);box-shadow:var(--elevation-3);color:var(--bdw-cocoa)}
+.bdw-glass--cocoa{background:var(--glass-cocoa);border-color:rgba(255,255,255,.14);color:var(--bdw-warm-cream)}
+.bdw-glass--flat{box-shadow:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.bdw-glass{background:var(--glass-background-fallback)}.bdw-glass--cocoa{background:var(--glass-cocoa-fallback)}}
+.bdw-glass.is-fallback{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--glass-background-fallback)}
+.bdw-glass--cocoa.is-fallback{background:var(--glass-cocoa-fallback)}
+.bdw-elev-0{box-shadow:var(--elevation-0)}.bdw-elev-1{box-shadow:var(--elevation-1)}.bdw-elev-2{box-shadow:var(--elevation-2)}.bdw-elev-3{box-shadow:var(--elevation-3)}
+.bdw-reveal{opacity:0;transform:translateY(var(--reveal-distance-lg));transition:opacity var(--duration-entrance) var(--ease-premium),transform var(--duration-entrance) var(--ease-premium),clip-path var(--duration-entrance) var(--ease-premium)}
+.bdw-reveal[data-variant=fade]{transform:none}
+.bdw-reveal[data-variant=image]{transform:scale(1.04);clip-path:inset(12% 0 0 0 round 16px)}
+.bdw-reveal.is-in{opacity:1;transform:none}
+.bdw-reveal[data-variant=image].is-in{clip-path:inset(-48px -48px -48px -48px round 16px)}
+@media (prefers-reduced-motion:reduce){.bdw-reveal{opacity:1;transform:none;clip-path:none}}
+@media print{.bdw-reveal{opacity:1!important;transform:none!important;clip-path:none!important}}

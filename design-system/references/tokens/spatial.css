@@ -1,0 +1,69 @@
+/* v2.3 — Spatial & expressive motion: perspective, depth, lighting, transform and spring tokens */
+:root{
+/* Perspective — keep between 800 and 1400px; nearer = stronger distortion */
+--perspective-near:900px; /* @kind other */
+--perspective-card:1100px; /* @kind other */
+--perspective-far:1400px; /* @kind other */
+
+/* Depth planes (translateZ / parallax ratios). Background moves least, foreground most. */
+--depth-back:-40px; /* @kind spacing */
+--depth-base:0px; /* @kind spacing */
+--depth-raised:24px; /* @kind spacing */
+--depth-float:48px; /* @kind spacing */
+--parallax-back:-0.06; /* @kind other */
+--parallax-mid:0.08; /* @kind other */
+--parallax-front:0.16; /* @kind other */
+--parallax-max:72px; /* @kind spacing */
+
+/* Lighting — one warm key light from the top-left */
+--light-angle:135deg; /* @kind other */
+--light-highlight:rgba(255,255,255,.24); /* @kind color */
+--light-warm:rgba(255,206,45,.16); /* @kind color */
+--light-rim:inset 0 1px 0 rgba(255,255,255,.6); /* @kind shadow */
+--shadow-ambient-color:69,32,15; /* @kind other */
+--shadow-contact:0 2px 6px rgba(69,32,15,.10); /* @kind shadow */
+--elevation-4:0 14px 28px rgba(69,32,15,.08),0 38px 72px rgba(69,32,15,.16); /* @kind shadow */
+
+/* Transforms */
+--tilt-max:4deg; /* @kind other */
+--lift-card:-5px; /* @kind spacing */
+--scale-press:.98; /* @kind other */
+--scale-hover:1.02; /* @kind other */
+--scale-icon:1.08; /* @kind other */
+--rotate-icon:-8deg; /* @kind other */
+--arrow-nudge:3px; /* @kind spacing */
+
+/* Motion — microinteractions · hover · entrances · ambient loops */
+--duration-micro:150ms; /* @kind other */
+--duration-hover:260ms; /* @kind other */
+--duration-track:90ms; /* @kind other */
+--duration-reset:650ms; /* @kind other */
+--duration-entrance:560ms; /* @kind other */
+--duration-ambient:6s; /* @kind other */
+--duration-ambient-slow:8s; /* @kind other */
+--stagger:70ms; /* @kind other */
+--reveal-distance-lg:20px; /* @kind spacing */
+--ease-spring:cubic-bezier(.34,1.36,.64,1); /* @kind other */
+--ease-spring-soft:cubic-bezier(.3,1.18,.55,1); /* @kind other */
+--ease-ambient:cubic-bezier(.45,0,.55,1); /* @kind other */
+}
+
+/* Animated text link */
+.bdw-link{color:var(--bdw-deep-walk);font-weight:800;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;padding-bottom:2px;transition:background-size var(--duration-hover) var(--ease-premium),color var(--duration-micro) var(--ease-premium)}
+.bdw-link:hover,.bdw-link:focus-visible{background-size:100% 2px;color:var(--bdw-walk-blue-ink,#004B75)}
+.bdw-link__arrow,.bdw-arrow{display:inline-block;transition:transform var(--duration-hover) var(--ease-spring)}
+.bdw-link:hover .bdw-link__arrow,a:hover>.bdw-arrow,button:hover>.bdw-arrow{transform:translate(var(--arrow-nudge),calc(var(--arrow-nudge)*-1))}
+
+/* Icon microinteraction: small rotation + bounce on hover of the icon or its parent control */
+.bdw-icon{display:inline-grid;place-items:center;transition:transform var(--duration-hover) var(--ease-spring)}
+.bdw-icon-host:hover .bdw-icon,.bdw-icon:hover{transform:rotate(var(--rotate-icon)) scale(var(--scale-icon))}
+
+/* Ambient float for decorative chips */
+@keyframes bdw-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bdw-float{animation:bdw-float var(--duration-ambient) var(--ease-ambient) infinite}
+.bdw-float--slow{animation-duration:var(--duration-ambient-slow);animation-delay:-2s}
+
+@media (prefers-reduced-motion:reduce){.bdw-float{animation:none}.bdw-icon,.bdw-link__arrow,.bdw-arrow{transition:none;transform:none!important}}
+:root[data-reduce-motion] .bdw-float{animation:none}
+:root[data-reduce-motion] .bdw-icon,:root[data-reduce-motion] .bdw-link__arrow,:root[data-reduce-motion] .bdw-arrow{transition:none;transform:none!important}
+:root[data-reduce-motion] .bdw-reveal{opacity:1;transform:none;clip-path:none}

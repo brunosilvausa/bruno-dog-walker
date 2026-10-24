@@ -1,0 +1,13 @@
+# Playful Premium refinement
+
+Intent: refine the existing warm neighborhood identity with restrained depth, soft glass and subtle illumination; no marketing architecture/content change.
+
+Approaches: replace the brand palette with the illustrative CSS (rejected because preservation is explicit); duplicate a new component stack (rejected); refine existing tokens/components and add focused missing examples (selected by implementer under standing no-questions approval).
+
+Keep approved brand colors #008bd2/#ffd233/#fff9ea/#4a200d/#006095. Use the requested rgba(255,206,45,.22) for light only and cubic-bezier(.22,1,.36,1) for shared motion. Keep 150/250/400ms and levels0 flat/1rest/2hover/3floating. Add translucent decorative border tokens, soften level2 shadows, elevate CTA2 and hero1. Retain conservative standard glass and explicit78% reference glass, opaque fallbacks, solid cards/footer. Selected actions may gain a temporary hover/focus halo; no permanent glow. No neon outside explicit laboratory.
+
+Missing compositions: optional sticky SiteHeader, demonstrated inside a bounded labelled keyboard-scrollable website preview with responsive scroll clearance. No scroll listener/global sticky header. Compact image captions use GlassSurface revealed on hover/focus; captions remain in DOM, alt always names image, no-JS/touch keep captions visible. Reuse BrandPhoto and avoid text over faces by placing captions in a reserved band. TextField is the only new library primitive: required label/id, native input props, helper/error association, invalid state, disabled/loading handling, visible independent focus. Showcase fields are examples only: no form, data submission or storage.
+
+Comparison: one small client toggle changes scoped established/refined treatment overrides around server-rendered Card/Button/GlassSurface examples; no page-wide state or persistence. Preserve previous values as documented comparison tokens, not a second library. Existing old specimens stay usable. Remove perpetual floating animation: enabled FloatingElement moves only on pointer hover and returns at rest; keyboard focus keeps it still, motion reduction wins. Existing opt-in tilt and explicit replay entrances remain.
+
+Acceptance: semantic unit tests for TextField boundary associations/loading; all required gates; browser comparison toggle, actual sticky scroll/focus visibility, hover/touch/noJS captions, four widths, measured contrast, OS/local reduced motion and existing spatial/button/card regressions; independent final review. No dependencies, release, home restructuring, invented services or live enquiry form.

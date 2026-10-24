@@ -13,6 +13,8 @@ pnpm dev
 
 Visit http://127.0.0.1:3000. If that port is in use, choose an available one with `pnpm dev --port 3001`. The process binds only to 127.0.0.1; use Ctrl+C to stop it.
 
+Visit `/design-system` for live component specimens. To view the archived HTMLs separately, follow [design-system/README.md](../design-system/README.md); their local static server is independent of Next and requires no external font/CDN requests.
+
 No environment file, credentials or database is needed. Optional `LOG_LEVEL` accepts trace, debug, info, warn, error, fatal or silent and defaults to info. `.env.example` documents it; keep real local environment files ignored.
 
 ```sh

@@ -1,0 +1,6 @@
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-sans);font-size:var(--type-body-size);line-height:var(--type-body-lh);-webkit-font-smoothing:antialiased}
+a{color:var(--text-link);font-weight:700;text-underline-offset:3px}
+a:hover{color:var(--bdw-focus-blue)}
+:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:1ms!important;animation-duration:1ms!important}}

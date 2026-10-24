@@ -1,0 +1,18 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Forms" subtitle="Field states, Select, Checkbox, ThemeSwitch" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="../../vendor/react.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="../../vendor/react-dom.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../vendor/babel.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><style>body{padding:24px}.g{display:grid;grid-template-columns:1fr 1fr;gap:20px}</style></head><body><div id="r"></div><script type="text/babel">
+const {Field,Select,Checkbox,ThemeSwitch}=window.BrunoDogWalkerDesignSystem_0597c9;
+function App(){const [v,setV]=React.useState('blue');return <div className="g">
+<Field label="Your email" type="email" placeholder="you@example.com" help="Default: hover darkens the border."/>
+<Field label="Your email" defaultValue="you@exam" state="focus" help="Focus: 3px outline + warm glow."/>
+<Field label="Your email" defaultValue="hello@" error="Please enter a full email address."/>
+<Field label="Your email" defaultValue="you@example.com" success="Thanks, the format looks right."/>
+<Select label="Service" options={["Small-group walk","Private walk","Puppy visit"]}/>
+<Field label="Building access" disabled placeholder="Available after booking"/>
+<div style={{display:'flex',gap:16,alignItems:'center',gridColumn:'1/-1'}}><ThemeSwitch label="Base" value={v} onChange={setV} options={[{value:'cream',label:'Creme'},{value:'blue',label:'Azul vivo'}]}/><Checkbox label="Mostrar margens" defaultChecked/></div>
+</div>}
+ReactDOM.createRoot(document.getElementById('r')).render(<App/>);
+</script></body></html>

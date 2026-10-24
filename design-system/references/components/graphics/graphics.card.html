@@ -1,0 +1,14 @@
+<!-- @dsCard group="Components" viewport="700x200" name="Graphics" subtitle="Wave (hill, swoop) and Spark accent" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="../../vendor/react.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="../../vendor/react-dom.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../vendor/babel.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><style>body{padding:24px}</style></head><body><div id="r"></div><script type="text/babel">
+const {Wave,Spark}=window.BrunoDogWalkerDesignSystem_0597c9;
+ReactDOM.createRoot(document.getElementById('r')).render(<div style={{display:'grid',gridTemplateColumns:'1fr 1fr 120px 120px',gap:16,alignItems:'center'}}>
+<div style={{background:'var(--surface-tint)',borderRadius:16,overflow:'hidden',paddingTop:40}}><Wave height={110}/></div>
+<div style={{background:'var(--surface-tint)',borderRadius:16,overflow:'hidden',height:150}}><Wave variant="swoop" height={60} style={{marginTop:45}}/></div>
+<div style={{background:'var(--surface-tint)',borderRadius:16,height:150,display:'grid',placeItems:'center'}}><Spark size={64}/></div>
+<div style={{background:'var(--bdw-walk-blue)',borderRadius:16,height:150,display:'grid',placeItems:'center'}}><Spark size={64} color="var(--bdw-warm-cream)" glow/></div>
+</div>);
+</script></body></html>

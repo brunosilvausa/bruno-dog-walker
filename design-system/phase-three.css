@@ -1,0 +1,24 @@
+@layer components {
+  .ds-spatial-layer[data-depth="float"] { --ds-layer-depth: var(--ds-depth-float); }
+  .ds-phase-three { --ds-press: var(--ds-phase3-press); --ds-card-lift: var(--ds-phase3-lift); --ds-duration-reset: calc(var(--ds-duration-reset-base) * var(--ds-duration-scale)); --ds-duration-greeting: calc(var(--ds-duration-greeting-base) * var(--ds-duration-scale)); --ds-duration: calc(var(--ds-phase3-standard) * var(--ds-duration-scale)); --ds-duration-section: calc(var(--ds-phase3-reveal) * var(--ds-duration-scale)); }
+  .ds-phase-three .ds-action { transition-duration: var(--ds-phase3-micro), var(--ds-phase3-micro), calc(var(--ds-phase3-fast) * var(--ds-duration-scale)), var(--ds-duration); }
+  .ds-phase-three .ds-action-arrow { transition-duration: calc(var(--ds-phase3-fast) * var(--ds-duration-scale)); }
+  .ds-phase-three .ds-spatial { perspective-origin: var(--ds-perspective-origin); }
+  .ds-phase-three .ds-motion-table { margin-top: var(--ds-space-6); }
+  .ds-phase-three .ds-spatial[data-tracking="true"] .ds-card { border-color: var(--ds-glass-border); }
+  .ds-ambient-motion { position: relative; display: grid; justify-items: center; max-width: 100%; }
+  .ds-ambient-motion[data-kind="float"] { width: min(100%, var(--ds-mascot-stage-size)); }
+  .ds-ambient-motion-content { display: grid; justify-items: center; width: 100%; min-width: 0; }
+  .ds-ambient-motion[data-kind="float"]::after { content: ""; position: absolute; width: 60%; height: var(--ds-ambient-shadow-height); bottom: 0; left: 20%; background: var(--ds-ambient-shadow); border-radius: var(--ds-radius-circle); opacity: 0.4; box-shadow: var(--ds-shadow-card); pointer-events: none; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .ds-ambient-motion[data-moving][data-kind="float"] .ds-ambient-motion-content { animation: ds-ambient-float clamp(var(--ds-ambient-min-duration), calc(var(--ds-ambient-duration) * var(--ds-duration-scale)), var(--ds-ambient-max-duration)) var(--ds-ease) infinite; }
+  .ds-ambient-motion[data-moving][data-kind="float"]::after { animation: ds-ambient-breathe clamp(var(--ds-ambient-min-duration), calc(var(--ds-ambient-duration) * var(--ds-duration-scale)), var(--ds-ambient-max-duration)) var(--ds-ease) infinite; }
+  .ds-ambient-motion[data-moving][data-kind="accent"] .ds-ambient-motion-content { animation: ds-ambient-accent clamp(var(--ds-ambient-min-duration), calc(var(--ds-ambient-accent-duration) * var(--ds-duration-scale)), var(--ds-ambient-max-duration)) ease-in-out infinite; animation-delay: var(--ds-ambient-delay); }
+}
+@keyframes ds-ambient-float { 0%, 100% { transform: none; } 50% { transform: translateY(var(--ds-ambient-lift)); } }
+@keyframes ds-ambient-breathe { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.15; } }
+@keyframes ds-ambient-accent { 0%, 100% { transform: none; } 50% { transform: translateY(var(--ds-ambient-lift)) rotate(var(--ds-mascot-turn)); } }
+@media (prefers-reduced-motion: reduce) {
+  .ds-ambient-motion .ds-ambient-motion-content, .ds-ambient-motion::after { animation: none !important; transform: none; }
+}
