@@ -43,4 +43,4 @@ ESLint 9.39.5 emits a deprecation warning. Upgrading to 10 currently produces pe
 
 `next-dev-loop` requires the missing global `agent-browser >=0.31.1`. Installing that prerequisite is separate machine setup; basic browser validation used the available Playwright connector. This does not block `pnpm dev` or ordinary app checks.
 
-The existing Git remote is GitHub. A read-only CI workflow is prepared locally; a successful remote workflow run is still pending. Deployment and email delivery remain deferred. Current evidence and capability states are in [setup](setup.md).
+The existing Git remote is GitHub. The read-only quality workflow is active on push/PR, with a successful complete Ubuntu run recorded in [setup](setup.md#2026-10-24--github-quality-activation). Deployment and email delivery remain deferred. Physical-device and screen-reader evidence remain separate.

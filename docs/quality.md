@@ -119,7 +119,7 @@ The privacy guard observes all routed origins/methods, headers and bodies, block
 
 ## Workflow and impact selection
 
-`.github/workflows/quality.yml` is configured for pushes, pull requests and manual runs. Activation and an observed successful GitHub run are tracked separately in setup. Actions are pinned by commit; contents permission is read-only, checkout credentials are not persisted, cache is disabled, and the job has a20min bound. Concurrent superseded runs on the same source branch are cancelled. No secrets, cron, deployment, comments, Git hooks or branch protection are added.
+`.github/workflows/quality.yml` runs on pushes, pull requests and manual runs. The [first complete successful Ubuntu run](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40137861939) is recorded in setup. Actions are pinned by commit; contents permission is read-only, checkout credentials are not persisted, cache is disabled, and the job has a20min bound. Concurrent superseded runs on the same source branch are cancelled. No secrets, cron, deployment, comments, Git hooks or branch protection are added.
 
 Every run installs the frozen lockfile and executes `pnpm check` plus `check:docs`. For simplicity and to avoid unsafe change-based gate omission, this first workflow also runs the baseline for documentation-only pushes; locally a documentation-only review can use `check:docs`. Browser selection compares committed base→HEAD with rename detection disabled so removals remain visible:
 

@@ -36,7 +36,7 @@ pnpm test:e2e
 
 The browser command starts and stops its own production server on loopback port3100 and refuses an occupied port. Run `pnpm check` first so it tests the current build. It covers Chromium mobile/desktop journeys and four axe accessibility states with synthetic data. [Quality](docs/quality.md#portable-browser-and-ci-commands) documents compatibility, layout and CI scope. Raw evidence stays local and ignored.
 
-The versioned [GitHub workflow](.github/workflows/quality.yml) is prepared for pushes and pull requests, with broader browser coverage for application/UI/configuration changes. Remote activation and successful GitHub execution remain pending; see [setup evidence](docs/setup.md#2026-10-24--phased-quality-automation).
+The [GitHub workflow](.github/workflows/quality.yml) runs automatically on pushes and pull requests, with broader browser coverage for application/UI/configuration changes. Its [first complete Ubuntu run passed](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40137861939); see [activation evidence](docs/setup.md#2026-10-24--github-quality-activation).
 
 ## Documentation
 

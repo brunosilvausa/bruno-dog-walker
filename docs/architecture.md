@@ -33,7 +33,7 @@ The official scaffold uses `@tailwindcss/turbopack` in `next.config.ts`. Preserv
 - `.agents/skills/`, `skills-lock.json`: versioned instructions; not runtime dependencies.
 - `tests/e2e/`, `playwright.config.ts`: independent production browser journeys, shared synthetic fixtures/health observation, privacy guard and axe states; six engine/viewport projects, no production imports.
 - `scripts/check-docs.mjs`, `quality-scope.mjs`, `e2e-summary-reporter.mjs`: tested Node-only tooling for owned documentation, impact selection and a bounded public summary. Scripts do not receive application credentials.
-- `.github/workflows/quality.yml`: prepared read-only push/PR checks on one Ubuntu runner; production build reused by browser tests. Remote execution is tracked separately in setup.
+- `.github/workflows/quality.yml`: active read-only push/PR checks on one Ubuntu runner; production build reused by browser tests. The first successful remote execution is recorded separately in setup.
 
 ## Boundaries and data
 

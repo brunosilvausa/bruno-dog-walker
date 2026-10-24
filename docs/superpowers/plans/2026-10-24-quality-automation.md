@@ -76,4 +76,4 @@
 
 ## Completion status
 
-E0–E4 local implementation and selected verification completed; see docs/setup.md for exact results and limits. Remote CI activation/run, physical devices, screen readers and final owner asset acceptance remain explicitly NOT RUN. No commit or push was performed.
+E0–E4 local implementation and selected verification completed. After explicit user authorization, commit f45b7d4 was pushed and the full Ubuntu CI run passed; see docs/setup.md for exact results and limits. Physical devices, screen readers, real delivery and final owner asset acceptance remain explicitly NOT RUN. The documentation receipt is synchronized separately from the verified implementation commit.
