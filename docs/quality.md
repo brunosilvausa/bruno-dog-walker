@@ -141,3 +141,9 @@ The failure artifact allowlist is only `.local-evidence/e2e/*/summary.json`, ret
 Keep the document validator's inline Markdown subset explicit; external availability, reference-style links and arbitrary HTML href/src are not claimed checked. New custom logic needs a failing control and a passing control. Tests remain independent; diagnostic reruns retain the first failure and never silently quarantine P0.
 
 Visual snapshots require approved baselines, stable fonts/images and motion frozen only for the visual comparison. Performance starts with a recorded production baseline, not an invented score target. Changes to app/UI select compatibility; material dependency/client/model/instruction/tool changes trigger the applicable integration/harness checks separately. Current tools' discovery, actual task execution, local graph extraction and native disposable harness results are separate evidence; no API-backed benchmark or official Harness2 run is implied.
+
+## Main branch policy — 2026-10-25
+
+The authorized `main-quality` branch ruleset targets only `refs/heads/main`. It requires a pull request, resolved review threads, the `quality` status from GitHub Actions (integration ID15368, observed through the repository check API), and strict branch freshness. Mandatory approving reviews are zero for this solo-maintainer workflow. Force pushes and deletion are prohibited; bypass actors and exclusions are empty. No restrict-updates or merge-queue rule is selected.
+
+Configuration verification is distinct from behavioral proof: the deliberately failing/corrected PR probe remains pending in phase4. Administrators can still edit the ruleset. GitHub may accept skipped/neutral status conclusions; keep the unconditional quality job, fail-closed selection and critical-skip reporter. CodeRabbit reported no automatic review for PR1; its green status is not review evidence.

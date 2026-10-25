@@ -50,8 +50,8 @@
 - [x] Run `pnpm check`, then `pnpm check:docs` against final source.
 - [x] Reuse that production build, with no concurrent build or unknown server, for `pnpm exec playwright test --grep @critical` and `pnpm exec playwright test --project=chromium-desktop --grep @extended`. Require zero failures and no selected critical skips.
 - [x] Independently review workflow, test controls and final diff. Record actual results, not expected historical counts.
-- [ ] Under explicit execution/publication authorization, use the AIOX DevOps role to commit only reviewed paths and publish the repair through a PR. Wait for a successful current-head GitHub run before merging the repair; enforcement is not active yet. Do not reuse this permission for other work.
-- [ ] Record the immutable repair commit and run URL. Do not proceed on failed, cancelled or unobserved remote execution.
+- [x] Under explicit execution/publication authorization, use the AIOX DevOps role to commit only reviewed paths and publish the repair through a PR. Wait for a successful current-head GitHub run before merging the repair; enforcement is not active yet. Do not reuse this permission for other work.
+- [x] Record the immutable repair commit and run URL. Do not proceed on failed, cancelled or unobserved remote execution.
 
 **Gate:** repaired workflow is on `main` with an observed successful full GitHub run; the new local negative controls pass.
 
@@ -59,12 +59,12 @@
 
 **Files:** `AGENTS.md`, `docs/quality.md`, `docs/setup.md`. Remote resource: one branch ruleset in `brunosilvausa/bruno-dog-walker`.
 
-- [ ] Re-read repository access, default branch, rulesets, classic branch protection and current check metadata through the API. Save the relevant pre-change configuration privately. Stop for conflicting changes rather than replacing them.
-- [ ] Update AGENTS.md narrowly to permit the approved `main` policy and required PR workflow; preserve prohibitions on unsolicited remote actions and unrelated global branch requirements. Prepare/check these docs before activating the policy.
-- [ ] Prepare the exact reviewable ruleset payload: name `main-quality`, target branch, enforcement `active`, include `refs/heads/main`, no exclusions and no bypass actors.
-- [ ] Require pull requests with zero required approving reviews and resolved review threads; require status context `quality` from the observed GitHub Actions integration, with strict up-to-date policy. Do not exempt existing-branch updates from required checks.
-- [ ] Add deletion and non-fast-forward prohibitions. Do not add `restrict updates`, which could block legitimate merges; PR enforcement governs normal updates.
-- [ ] Under explicit remote-policy authorization, create the ruleset only if the revalidated state still matches the baseline. Fetch it back and compare every effective setting with the payload. Preserve the resource ID and redacted before/after receipt.
+- [x] Re-read repository access, default branch, rulesets, classic branch protection and current check metadata through the API. Save the relevant pre-change configuration privately. Stop for conflicting changes rather than replacing them.
+- [x] Update AGENTS.md narrowly to permit the approved `main` policy and required PR workflow; preserve prohibitions on unsolicited remote actions and unrelated global branch requirements. Prepare/check these docs before activating the policy.
+- [x] Prepare the exact reviewable ruleset payload: name `main-quality`, target branch, enforcement `active`, include `refs/heads/main`, no exclusions and no bypass actors.
+- [x] Require pull requests with zero required approving reviews and resolved review threads; require status context `quality` from the observed GitHub Actions integration, with strict up-to-date policy. Do not exempt existing-branch updates from required checks.
+- [x] Add deletion and non-fast-forward prohibitions. Do not add `restrict updates`, which could block legitimate merges; PR enforcement governs normal updates.
+- [x] Under explicit remote-policy authorization, create the ruleset only if the revalidated state still matches the baseline. Fetch it back and compare every effective setting with the payload. Preserve the resource ID and redacted before/after receipt.
 - [ ] Publish prepared documentation through the required PR path; wait for current checks before any merge. Use existing tests and `check:docs`; do not weaken enforcement to publish documentation.
 
 **Gate:** API confirms an active policy targeting exactly `main`, the correct required check/source, strict freshness, zero approvals and no bypass actors.
@@ -98,3 +98,7 @@ This document implements the approved short design as a plan only. No code, depe
 ## Local closure — 2026-10-25
 
 Phase 1 and the local-only phase 2 checks are complete. The extra final blank line in docs/setup.md was removed; final whitespace and owned documentation checks passed. Prior logs show RED 4/12 passing with eight intended failures, GREEN 12/12, 94 application tests, 29 tooling tests, 96 critical journeys and ten extended layouts. The independent read-only review in this conversation reported no findings. No build or browser suite was repeated for this documentation-only closure. Publishing the repair, observing its remote run, enforcing rules and the rejection/recovery probe remain pending and unauthorized in this local task.
+
+## Phase 3 activation — 2026-10-25
+
+Explicit phase3 authorization supersedes the historical planning-only limits for this scope. Ruleset25811101 is active and API-verified; documentation publication is separate from approval to merge. The documentation PR and CI results are recorded in local receipts to avoid a post-CI documentation loop. Phase4 remains pending.
