@@ -141,3 +141,15 @@ The failure artifact allowlist is only `.local-evidence/e2e/*/summary.json`, ret
 Keep the document validator's inline Markdown subset explicit; external availability, reference-style links and arbitrary HTML href/src are not claimed checked. New custom logic needs a failing control and a passing control. Tests remain independent; diagnostic reruns retain the first failure and never silently quarantine P0.
 
 Visual snapshots require approved baselines, stable fonts/images and motion frozen only for the visual comparison. Performance starts with a recorded production baseline, not an invented score target. Changes to app/UI select compatibility; material dependency/client/model/instruction/tool changes trigger the applicable integration/harness checks separately. Current tools' discovery, actual task execution, local graph extraction and native disposable harness results are separate evidence; no API-backed benchmark or official Harness2 run is implied.
+
+## Main branch policy — 2026-10-25
+
+The authorized `main-quality` branch ruleset targets only `refs/heads/main`. It requires a pull request, resolved review threads, the `quality` status from GitHub Actions (integration ID15368, observed through the repository check API), and strict branch freshness. Mandatory approving reviews are zero for this solo-maintainer workflow. Force pushes and deletion are prohibited; bypass actors and exclusions are empty. No restrict-updates or merge-queue rule is selected.
+
+Configuration verification is distinct from behavioral proof: the deliberately failing/corrected PR probe remains pending in phase4. Administrators can still edit the ruleset. GitHub may accept skipped/neutral status conclusions; keep the unconditional quality job, fail-closed selection and critical-skip reporter. CodeRabbit reported no automatic review for PR1; its green status is not review evidence.
+
+## Local event-isolated concurrency repair — 2026-10-25
+
+The local workflow candidate includes `github.event_name` in the existing workflow/source-repository/source-branch group. Push, pull_request and workflow_dispatch therefore have separate groups; repeated runs of the same event and source branch retain the same group and `cancel-in-progress: true`. This preserves automatic coverage before a PR exists and the required `quality` job. The ruleset is unchanged.
+
+Three regressions evaluate the actual group string using a bounded local string-path/fallback evaluator: event separation, stable same-event identity, and branch/repository/fork isolation. On the old expression the separation control failed (one group instead of three); after the one-line change all15 workflow controls passed. This is local configuration evidence, not execution of GitHub scheduling or proof that PR2 is unblocked. Future remote validation must inspect both push and PR runs for a new head, absence of cross-event cancellation, required-check satisfaction and current mergeability. The separately authorized phase4 failure/recovery probe remains pending.

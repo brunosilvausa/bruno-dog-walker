@@ -47,7 +47,7 @@ Portable E2E tests use synthetic data and their own production server on loopbac
 
 Use Superpowers proportionally to the request; explicit authorization to plan and execute takes precedence over redundant approval prompts. AIOX uses the installed system plugin; do not scaffold its framework into this application.
 
-Do not add Git hooks, main-branch blockers, branch/worktree requirements or global installations. Parallel work requires distinct writable files and isolated processes; the coordinator owns manifests and lockfiles. Delegated agents preserve the native session model/authentication; when exact model identity cannot be selected, inherit it rather than guess.
+Do not add Git hooks, unrelated branch/worktree requirements or global installations. The explicitly authorized `main-quality` ruleset protects only `main`: require a PR, resolved review threads, the GitHub Actions `quality` check and an up-to-date branch; block force pushes and deletion, with zero mandatory approvals and no bypass actors. Do not weaken or extend this policy without explicit authorization. Parallel work requires distinct writable files and isolated processes; the coordinator owns manifests and lockfiles. Delegated agents preserve the native session model/authentication; when exact model identity cannot be selected, inherit it rather than guess.
 
 ## Local skills and capabilities
 

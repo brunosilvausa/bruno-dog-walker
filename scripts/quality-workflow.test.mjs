@@ -13,6 +13,51 @@ const block = match[1].match(/        run: \|\n((?:          .*\n)+)$/);
 assert.ok(block, "Expected literal run block with ten-space indentation");
 const script = block[1].replace(/^ {10}/gm, "");
 
+const group = workflow.match(/^  group: (.+)$/m)?.[1];
+assert.ok(group, "Expected concurrency group");
+// shortcut: string paths and fallback only; extend explicitly if the workflow uses other expressions.
+function concurrencyGroup(context) {
+  return group.replace(/\$\{\{ (.*?) \}\}/g, (_, expression) => {
+    const keys = expression.split(" || ");
+    for (const key of keys) assert.ok(Object.hasOwn(context, key), `Unsupported context: ${key}`);
+    return keys.map(key => context[key]).find(Boolean) ?? "";
+  });
+}
+
+function context(event, repository = "owner/repo", branch = "feature") {
+  return {
+    "github.workflow": "Quality", "github.event_name": event,
+    "github.repository": repository,
+    "github.event.pull_request.head.repo.full_name": event === "pull_request" ? repository : "",
+    "github.head_ref": event === "pull_request" ? branch : "",
+    "github.ref_name": event === "pull_request" ? "2/merge" : branch,
+  };
+}
+
+test("concurrency isolates events on the same source branch", () => {
+  const groups = ["push", "pull_request", "workflow_dispatch"].map(event => concurrencyGroup(context(event)));
+  assert.equal(new Set(groups).size, 3);
+});
+
+test("concurrency stays stable for repeated same-event source revisions", () => {
+  for (const event of ["push", "pull_request", "workflow_dispatch"]) {
+    assert.equal(concurrencyGroup(context(event)), concurrencyGroup({ ...context(event), "github.ref_name":
+      event === "pull_request" ? "3/merge" : "feature" }));
+  }
+  assert.match(workflow, /^  cancel-in-progress: true$/m);
+});
+
+test("concurrency isolates source branches and repositories including forks", () => {
+  for (const event of ["push", "pull_request", "workflow_dispatch"]) {
+    const original = concurrencyGroup(context(event));
+    assert.notEqual(original, concurrencyGroup(context(event, "owner/repo", "other")));
+    assert.notEqual(original, concurrencyGroup(context(event, "fork/repo")));
+  }
+  assert.notEqual(concurrencyGroup(context("pull_request")), concurrencyGroup({
+    ...context("pull_request"), "github.event.pull_request.head.repo.full_name": "fork/repo",
+  }));
+});
+
 function run(t, { event = "push", manual = "", output = "critical\n", exit = 0 } = {}) {
   const root = mkdtempSync(join(tmpdir(), "bdw-workflow-"));
   t.after(() => rmSync(root, { recursive: true, force: true }));
