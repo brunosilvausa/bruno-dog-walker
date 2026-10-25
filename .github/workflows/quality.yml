@@ -52,10 +52,15 @@ jobs:
           QUALITY_MANUAL_SUITE: ${{ inputs.suite }}
         run: |
           if [ "$QUALITY_EVENT" = "workflow_dispatch" ]; then
-            printf 'suite=%s\n' "$QUALITY_MANUAL_SUITE" >> "$GITHUB_OUTPUT"
+            suite="$QUALITY_MANUAL_SUITE"
           else
-            printf 'suite=%s\n' "$(node scripts/quality-scope.mjs)" >> "$GITHUB_OUTPUT"
+            suite=$(node scripts/quality-scope.mjs)
           fi
+          case "$suite" in
+            critical|full) ;;
+            *) echo 'Invalid browser coverage selection' >&2; exit 1 ;;
+          esac
+          printf 'suite=%s\n' "$suite" >> "$GITHUB_OUTPUT"
       - name: Install Chromium
         if: steps.coverage.outputs.suite == 'critical'
         run: pnpm exec playwright install --with-deps chromium
