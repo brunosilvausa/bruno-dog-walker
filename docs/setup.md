@@ -431,3 +431,7 @@ Explicit authorization covers phase3 documents, ruleset creation/API verificatio
 Policy documents and the payload were prepared before activation. The phase4 failure/recovery probe is not authorized here and remains NOT RUN. No policy bypass, application change, deployment or CodeRabbit configuration change is included. Activation verification is recorded below only after a successful create/read-back comparison.
 
 Ruleset25811101 was created active and independently fetched back: [main-quality](https://github.com/brunosilvausa/bruno-dog-walker/rules/25811101). Name/target/enforcement, exact main condition, empty bypass/exclusions, four rule types and every requested parameter matched the prepared payload. The effective main-rules API also returned all four expected types. Before/create/after/effective receipts remain private in `.local-evidence/merge-protection-2026-10-25/phase3-*.json`. This proves configuration, not the pending phase4 rejection/recovery behavior.
+
+## Disposable main protection probe — 2026-10-25
+
+A separately authorized disposable PR checks rejection of a deliberately failing synthetic test and eligibility after its removal. This branch is for verification only and must be closed without merge. The ruleset and application behavior are unchanged; results are recorded privately after observation.
