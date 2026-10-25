@@ -119,6 +119,8 @@ The privacy guard observes all routed origins/methods, headers and bodies, block
 
 ## Workflow and impact selection
 
+Coverage selection fails closed: a selector execution error or a value outside `critical|full` fails the step before publishing `suite`. This applies to automatic and manual selection. `node --test scripts/quality-workflow.test.mjs` executes the actual workflow shell block with isolated selector controls; it covers valid selections, empty/unknown/multiline values and nonzero selector exits with and without valid-looking output. These regressions also run through `pnpm test`. The extractor supports this step's current literal YAML indentation only and fails explicitly if that shape changes.
+
 `.github/workflows/quality.yml` runs on pushes, pull requests and manual runs. The [first complete successful Ubuntu run](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40137861939) is recorded in setup. Actions are pinned by commit; contents permission is read-only, checkout credentials are not persisted, cache is disabled, and the job has a20min bound. Concurrent superseded runs on the same source branch are cancelled. No secrets, cron, deployment, comments, Git hooks or branch protection are added.
 
 Every run installs the frozen lockfile and executes `pnpm check` plus `check:docs`. For simplicity and to avoid unsafe change-based gate omission, this first workflow also runs the baseline for documentation-only pushes; locally a documentation-only review can use `check:docs`. Browser selection compares committed base→HEAD with rename detection disabled so removals remain visible:
