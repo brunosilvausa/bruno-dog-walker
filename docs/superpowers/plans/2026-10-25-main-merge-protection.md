@@ -65,7 +65,7 @@
 - [x] Require pull requests with zero required approving reviews and resolved review threads; require status context `quality` from the observed GitHub Actions integration, with strict up-to-date policy. Do not exempt existing-branch updates from required checks.
 - [x] Add deletion and non-fast-forward prohibitions. Do not add `restrict updates`, which could block legitimate merges; PR enforcement governs normal updates.
 - [x] Under explicit remote-policy authorization, create the ruleset only if the revalidated state still matches the baseline. Fetch it back and compare every effective setting with the payload. Preserve the resource ID and redacted before/after receipt.
-- [ ] Publish prepared documentation through the required PR path; wait for current checks before any merge. Use existing tests and `check:docs`; do not weaken enforcement to publish documentation.
+- [x] Publish prepared documentation through the required PR path; wait for current checks before any merge. Use existing tests and `check:docs`; do not weaken enforcement to publish documentation.
 
 **Gate:** API confirms an active policy targeting exactly `main`, the correct required check/source, strict freshness, zero approvals and no bypass actors.
 
@@ -73,10 +73,10 @@
 
 **Files:** temporary branch-only Vitest fixture `src/lib/merge-protection-probe.test.ts`; final sanitized receipt in `docs/setup.md` and command/policy contract in `docs/quality.md`.
 
-- [ ] Create a clearly named disposable branch from the protected current `main`. Add one synthetic Vitest test that intentionally fails; do not disable or edit the workflow.
-- [ ] Push/open a draft-marked-as-test PR targeting `main` under explicit authorization. Wait for `quality` to fail at the probe commit; record head SHA, failing run and rules-aware mergeability. Distinguish the policy block from any other conflict/draft restriction; do not treat draft status alone as proof. If necessary mark ready solely for this validation.
-- [ ] Confirm effective policy identifies the failing required check as blocking. Never attempt an actual bad merge as a negative test.
-- [ ] Delete the synthetic fixture on the same branch and push the correction. Confirm the latest head passes `quality`, is up to date with `main`, and is allowed by the policy. If removal leaves an empty PR, use a small truthful documentation receipt change so a green mergeable PR can be observed.
+- [x] Create a clearly named disposable branch from the protected current `main`. Add one synthetic Vitest test that intentionally fails; do not disable or edit the workflow.
+- [x] Push/open a draft-marked-as-test PR targeting `main` under explicit authorization. Wait for `quality` to fail at the probe commit; record head SHA, failing run and rules-aware mergeability. Distinguish the policy block from any other conflict/draft restriction; do not treat draft status alone as proof. If necessary mark ready solely for this validation.
+- [x] Confirm effective policy identifies the failing required check as blocking. Never attempt an actual bad merge as a negative test.
+- [x] Delete the synthetic fixture on the same branch and push the correction. Confirm the latest head passes `quality`, is up to date with `main`, and is allowed by the policy. If removal leaves an empty PR, use a small truthful documentation receipt change so a green mergeable PR can be observed.
 - [ ] Close the probe PR without merging its branch. Delete only the owned temporary remote/local branch after preserving evidence and confirming no unique user work.
 - [ ] Publish the final truthful receipt through a normal documentation PR, verify checks, and merge only under the authorized integration scope. Record observed pending/fail/pass states separately; do not invent unobserved timeout or bypass tests.
 - [ ] Verify final local/remote SHA and working-tree state, ruleset settings, and no leftover probe fixture or owned test server. Report any intentionally retained resources.
@@ -123,3 +123,20 @@ Separately authorized local scope: add the event name to the concurrency group w
 The recovered historical sections, consolidated status and all task checkboxes remain preserved. Remote publication, runs on a new PR2 revision, resolution of the observed block and phase4 remain pending. Future publication should use only the four authorized changed files on the PR2 source branch after revalidating its head/base and rules. Both push and PR must complete successfully for the new head without cross-event cancellation, and effective required checks and merge eligibility must be inspected. No bypass or ruleset change is part of this correction.
 
 Local verification for this candidate passed: the specific suite has15 tests; `pnpm check` passed94 application and32 tooling tests plus lint/types/rules/build; `pnpm check:docs` and `git diff --check` passed. The same production build then passed96 critical journeys and10 extended layouts sequentially. A fresh independent read-only reviewer found no critical or important findings. The preserved PR-F05/FI backup SHA-256 remains `090a59d56a42bba757af12d30de20211ff1c26b9bc864a2d94cfe25d88419ff5`. No remote operations, publication, rule changes or phase4 execution were performed.
+
+## Main protection verification closure — 2026-10-25
+
+[PR2](https://github.com/brunosilvausa/bruno-dog-walker/pull/2) was integrated as `4157348e4f97e96c71aa428e43bfd8b9125aec4b`. Its [post-merge CI](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40237544779) passed94 application tests,32 tooling tests,96 critical journeys and10 extended layouts. The event-isolated concurrency repair was integrated with the policy documentation. Ruleset25811101 remains active and unchanged: required PR/resolved threads, GitHub Actions quality integration15368, strict freshness, zero mandatory approvals, no bypass/exclusions, deletion and force-push blocked.
+
+The disposable [PR3](https://github.com/brunosilvausa/bruno-dog-walker/pull/3) demonstrated the controlled failure/recovery sequence without attempting a bad merge:
+
+| Revision | Observed checks | Observed eligibility |
+|---|---|---|
+| `b56dbe378b20039118ece83e2a9b257b5c465e88` | [Push40238048789](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238048789) and [PR40238059003](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238059003) failed only the synthetic assertion;94 existing tests passed | Both required quality checks failed; non-draft PR was BLOCKED |
+| `7b7ebc4cd4b2e5e36b8928a96381fc949463f2da` | [Push40238163668](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238163668) passed94 application/32 tooling/96 critical/10 extended; [PR40238169617](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238169617) passed94 application/32 tooling/32 critical | Both required checks passed; CLEAN/MERGEABLE, no unresolved review threads |
+
+Recovery removed the synthetic test; the push compared its removal and selected full coverage, while the PR's remaining documentation-only diff selected critical Chromium coverage. These are different observed scopes, not identical browser runs. PR3 was closed without merge; main remained4157348 and the test path had zero commits in main history. No rules were relaxed. This proves the selected assertion-failure scenario, not all possible CI failures, pending/timeout modes or absence of product bugs.
+
+Sources: private `phase3-integration-result.json`, `phase4-probe-result.json`, `probe-red-*.log` and `probe-green-*.log` under `.local-evidence/merge-protection-2026-10-25/`. Raw logs and the unrelated PR-F05/FI backup are not published. Repository state was rechecked before this documentary branch: main4157348, PR3 CLOSED/unmerged, ruleset unchanged. Local and remote test/main-quality-proof branches remain preserved; cleanup was not authorized or executed. Final documentary integration remains pending; no phase4-wide completion is claimed until all selected steps are dispositioned.
+
+Phase4 compound steps remain pending: PR3 closure was performed, but its branch-deletion substep was not authorized; documentary publication/integration and final cleanup verification require their own observed results. The factual receipt is prepared on a fresh branch from main, never by merging or cherry-picking the synthetic probe history.

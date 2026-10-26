@@ -431,3 +431,18 @@ Explicit authorization covers phase3 documents, ruleset creation/API verificatio
 Policy documents and the payload were prepared before activation. The phase4 failure/recovery probe is not authorized here and remains NOT RUN. No policy bypass, application change, deployment or CodeRabbit configuration change is included. Activation verification is recorded below only after a successful create/read-back comparison.
 
 Ruleset25811101 was created active and independently fetched back: [main-quality](https://github.com/brunosilvausa/bruno-dog-walker/rules/25811101). Name/target/enforcement, exact main condition, empty bypass/exclusions, four rule types and every requested parameter matched the prepared payload. The effective main-rules API also returned all four expected types. Before/create/after/effective receipts remain private in `.local-evidence/merge-protection-2026-10-25/phase3-*.json`. This proves configuration, not the pending phase4 rejection/recovery behavior.
+
+## Main protection verification closure — 2026-10-25
+
+[PR2](https://github.com/brunosilvausa/bruno-dog-walker/pull/2) was integrated as `4157348e4f97e96c71aa428e43bfd8b9125aec4b`. Its [post-merge CI](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40237544779) passed94 application tests,32 tooling tests,96 critical journeys and10 extended layouts. The event-isolated concurrency repair was integrated with the policy documentation. Ruleset25811101 remains active and unchanged: required PR/resolved threads, GitHub Actions quality integration15368, strict freshness, zero mandatory approvals, no bypass/exclusions, deletion and force-push blocked.
+
+The disposable [PR3](https://github.com/brunosilvausa/bruno-dog-walker/pull/3) demonstrated the controlled failure/recovery sequence without attempting a bad merge:
+
+| Revision | Observed checks | Observed eligibility |
+|---|---|---|
+| `b56dbe378b20039118ece83e2a9b257b5c465e88` | [Push40238048789](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238048789) and [PR40238059003](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238059003) failed only the synthetic assertion;94 existing tests passed | Both required quality checks failed; non-draft PR was BLOCKED |
+| `7b7ebc4cd4b2e5e36b8928a96381fc949463f2da` | [Push40238163668](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238163668) passed94 application/32 tooling/96 critical/10 extended; [PR40238169617](https://github.com/brunosilvausa/bruno-dog-walker/actions/runs/40238169617) passed94 application/32 tooling/32 critical | Both required checks passed; CLEAN/MERGEABLE, no unresolved review threads |
+
+Recovery removed the synthetic test; the push compared its removal and selected full coverage, while the PR's remaining documentation-only diff selected critical Chromium coverage. These are different observed scopes, not identical browser runs. PR3 was closed without merge; main remained4157348 and the test path had zero commits in main history. No rules were relaxed. This proves the selected assertion-failure scenario, not all possible CI failures, pending/timeout modes or absence of product bugs.
+
+Sources: private `phase3-integration-result.json`, `phase4-probe-result.json`, `probe-red-*.log` and `probe-green-*.log` under `.local-evidence/merge-protection-2026-10-25/`. Raw logs and the unrelated PR-F05/FI backup are not published. Repository state was rechecked before this documentary branch: main4157348, PR3 CLOSED/unmerged, ruleset unchanged. Local and remote test/main-quality-proof branches remain preserved; cleanup was not authorized or executed. Final documentary integration remains pending; no phase4-wide completion is claimed until all selected steps are dispositioned.
